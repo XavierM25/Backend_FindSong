@@ -1,0 +1,104 @@
+2025-05-15T01:14:56.600-05:00  INFO 555075 --- [main] c.f.findsongapi.FindSongApiApplication   : Starting FindSongApiApplication using Java 21.0.7 with PID 555075 (/home/david/Documentos/FindSongAPI/target/classes started by david in /home/david/Documentos/FindSongAPI)
+2025-05-15T01:14:56.602-05:00  INFO 555075 --- [main] c.f.findsongapi.FindSongApiApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-15T01:14:57.128-05:00  INFO 555075 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 3000 (http)
+2025-05-15T01:14:57.134-05:00  INFO 555075 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-15T01:14:57.134-05:00  INFO 555075 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-05-15T01:14:57.162-05:00  INFO 555075 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-15T01:14:57.163-05:00  INFO 555075 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 532 ms
+2025-05-15T01:14:57.218-05:00  WARN 555075 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'audioRecognitionController' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/controller/AudioRecognitionController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'audioRecognitionService' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/service/AudioRecognitionService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'shazamService' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/service/ShazamService.class]: Failed to instantiate [com.findsong.findsongapi.service.ShazamService]: No default constructor found
+2025-05-15T01:14:57.219-05:00  INFO 555075 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-05-15T01:14:57.226-05:00  INFO 555075 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-15T01:14:57.234-05:00 ERROR 555075 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'audioRecognitionController' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/controller/AudioRecognitionController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'audioRecognitionService' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/service/AudioRecognitionService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'shazamService' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/service/ShazamService.class]: Failed to instantiate [com.findsong.findsongapi.service.ShazamService]: No default constructor found
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:802) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:241) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1193) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:973) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:946) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331) ~[spring-boot-3.2.0.jar:3.2.0]
+	at com.findsong.findsongapi.FindSongApiApplication.main(FindSongApiApplication.java:12) ~[classes/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'audioRecognitionService' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/service/AudioRecognitionService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'shazamService' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/service/ShazamService.class]: Failed to instantiate [com.findsong.findsongapi.service.ShazamService]: No default constructor found
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:802) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:241) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1193) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1441) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1348) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789) ~[spring-beans-6.1.1.jar:6.1.1]
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shazamService' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/service/ShazamService.class]: Failed to instantiate [com.findsong.findsongapi.service.ShazamService]: No default constructor found
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1318) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1203) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1441) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1348) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789) ~[spring-beans-6.1.1.jar:6.1.1]
+	... 33 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.findsong.findsongapi.service.ShazamService]: No default constructor found
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:84) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1312) ~[spring-beans-6.1.1.jar:6.1.1]
+	... 45 common frames omitted
+Caused by: java.lang.NoSuchMethodException: com.findsong.findsongapi.service.ShazamService.<init>()
+	at java.base/java.lang.Class.getConstructor0(Class.java:3761) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2930) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:80) ~[spring-beans-6.1.1.jar:6.1.1]
+	... 46 common frames omitted
+
+2025-05-15T01:17:08.172-05:00  INFO 556301 --- [main] c.f.findsongapi.FindSongApiApplication   : Starting FindSongApiApplication using Java 21.0.7 with PID 556301 (/home/david/Documentos/FindSongAPI/target/classes started by david in /home/david/Documentos/FindSongAPI)
+2025-05-15T01:17:08.173-05:00  INFO 556301 --- [main] c.f.findsongapi.FindSongApiApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-15T01:17:08.669-05:00  INFO 556301 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 3000 (http)
+2025-05-15T01:17:08.674-05:00  INFO 556301 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-15T01:17:08.675-05:00  INFO 556301 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-05-15T01:17:08.696-05:00  INFO 556301 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-15T01:17:08.697-05:00  INFO 556301 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 499 ms
+2025-05-15T01:17:08.865-05:00  WARN 556301 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 7e9ea12b-d04f-4a7c-bb4b-ee004236b6d9
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-15T01:17:08.909-05:00  INFO 556301 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-05-15T01:17:08.983-05:00  INFO 556301 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@799f916e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@576b7c74, org.springframework.security.web.context.SecurityContextHolderFilter@67fa5045, org.springframework.security.web.header.HeaderWriterFilter@51e754e1, org.springframework.web.filter.CorsFilter@21de60a7, org.springframework.security.web.authentication.logout.LogoutFilter@3bc69ce9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5974b233, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5c134052, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@73894c5a, org.springframework.security.web.session.SessionManagementFilter@41f4039e, org.springframework.security.web.access.ExceptionTranslationFilter@7fedb795, org.springframework.security.web.access.intercept.AuthorizationFilter@7fda2001]
+2025-05-15T01:17:09.073-05:00  INFO 556301 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 3000 (http) with context path ''
+2025-05-15T01:17:09.077-05:00  INFO 556301 --- [main] c.f.findsongapi.FindSongApiApplication   : Started FindSongApiApplication in 1.115 seconds (process running for 1.448)
+2025-05-15T01:17:16.203-05:00  INFO 556301 --- [http-nio-3000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-15T01:17:16.203-05:00  INFO 556301 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-15T01:17:16.204-05:00  INFO 556301 --- [http-nio-3000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-15T01:17:16.210-05:00  WARN 556301 --- [http-nio-3000-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/index.html' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-05-15T01:17:16.215-05:00  WARN 556301 --- [http-nio-3000-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/index.html' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-05-15T01:17:33.862-05:00  WARN 556301 --- [http-nio-3000-exec-2] org.apache.catalina.connector.Request    : Creating the temporary upload location [/tmp/findsong-uploads] as it is required by the servlet [dispatcherServlet]
+2025-05-15T01:17:33.901-05:00  INFO 556301 --- [http-nio-3000-exec-2] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 160109 bytes
+2025-05-15T01:17:33.902-05:00  INFO 556301 --- [http-nio-3000-exec-2] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 160109 bytes de audio
+2025-05-15T01:17:33.912-05:00  INFO 556301 --- [http-nio-3000-exec-2] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-15T01:17:39.441-05:00  INFO 556301 --- [http-nio-3000-exec-2] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: un mensaje de voz
