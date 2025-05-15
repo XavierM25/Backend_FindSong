@@ -31,20 +31,36 @@ FindSong API es un servicio backend desarrollado con Spring Boot que utiliza la 
 - Maven 3.6 o superior
 - MongoDB (opcional, solo si se usa la funcionalidad de usuarios)
 - Clave de API de RapidAPI para el servicio de Shazam
+- Credenciales de Spotify (Client ID y Client Secret)
 
 ## Instalación
 
 1. Clona el repositorio:
+
    ```bash
    git clone https://github.com/tuusuario/findsong-api.git
    cd findsong-api
-   
+   ```
+
 2. Configura las propiedades de la aplicación:
-   Crea o edita el archivo src/main/resources/application.properties con tu clave de API:
-    ```properties
-   app.rapid-api-key=tu-clave-api-aqui
+
+   ```bash
+   cp src/main/resources/application.properties.example src/main/resources/application.properties
+   ```
+
+   Edita el archivo `src/main/resources/application.properties` con tus claves API:
+
+   ```properties
+   app.rapid-api-key=tu-clave-rapidapi-aqui
+   app.spotify.client-id=tu-client-id-spotify-aqui
+   app.spotify.client-secret=tu-client-secret-spotify-aqui
+   jwt.secret=tu-clave-secreta-jwt-aqui
+   ```
+
+   > ⚠️ **IMPORTANTE:** El archivo `application.properties` contiene información sensible y está configurado para ser ignorado por Git. No lo agregues al control de versiones.
 
 3. Compila el proyecto:
+
    ```bash
    ./mvnw clean package
    ```
@@ -53,7 +69,9 @@ FindSong API es un servicio backend desarrollado con Spring Boot que utiliza la 
    ```bash
    ./mvnw spring-boot:run
    ```
+
 ## Uso
+
 Endpoints principales
 
     GET /api: Endpoint de estado para verificar que el servicio esté funcionando
@@ -63,15 +81,17 @@ Endpoints principales
     POST /api/auth/login: Inicia sesión de usuario (si se implementa)
 
 ## Ejemplo de uso con cURL
-   ```properties
-   curl -X POST \
-   http://localhost:3000/api/audio-recognition/identify \
-   -H 'Content-Type: multipart/form-data' \
-   -F 'audio=@ruta/a/tu/archivo/audio.mp3' \
-   -F 'duration=10'
-   ```
+
+```properties
+curl -X POST \
+http://localhost:3000/api/audio-recognition/identify \
+-H 'Content-Type: multipart/form-data' \
+-F 'audio=@ruta/a/tu/archivo/audio.mp3' \
+-F 'duration=10'
+```
 
 ## Respuesta de ejemplo
+
 ```json
 {
   "success": true,
@@ -91,14 +111,17 @@ Endpoints principales
 ```
 
 ## Interfaz web
+
 La aplicación incluye una interfaz web simple para probar el servicio. Accede a ella desde:
 http://localhost:3000
 
 ## Configuración
+
 Las principales propiedades configurables son:
+
 ```
 server.port=3000
-app.rapid-api-key=tu-clave-api-aqui
+app.rapid-api-key=tu-clave-rapidapi-aqui
 app.cors-origins=*
 app.http.connect-timeout=30000
 app.http.read-timeout=30000
@@ -106,28 +129,28 @@ app.http.write-timeout=30000
 ```
 
 ## Contribución
+
 1. Haz un fork del proyecto
 
 2. Crea una rama para tu característica:
-    ```bash
-    git checkout -b feature/nueva-caracteristica
-    ```
-   
+   ```bash
+   git checkout -b feature/nueva-caracteristica
+   ```
 3. Haz commit de tus cambios:
-    ```bash
-    git commit -am 'Añade nueva característica'
-    ```
-   
+   ```bash
+   git commit -am 'Añade nueva característica'
+   ```
 4. Haz push a la rama:
-    ```bash
+   ```bash
    git push origin feature/nueva-caracteristica
    ```
-   
 5. Crea un Pull Request
 
 ## Licencia
+
 Este proyecto está licenciado bajo la licencia MIT.
 
 ## Contacto
+
 Para cualquier consulta, puedes contactar al equipo de desarrollo en:
 📧 xaviermg2504@gmail.com

@@ -2,14 +2,14 @@
 server.port=3000
 
 # Configuración RapidAPI (para Shazam)
-app.rapid-api-key=5dd49fa873msha7a3bcac00a9e15p1c26eejsn40605ee97076
+app.rapid-api-key=YOUR_RAPIDAPI_KEY
 app.shazam.api-host=shazam-song-recognition-api.p.rapidapi.com
 app.shazam.endpoint=/recognize/file
 app.shazam.max-audio-size=500000
 
 # Configuración Spotify
-app.spotify.client-id=365ccfa5153748e5a657306877272346
-app.spotify.client-secret=19317684c71b4d95b88a8c7ded847003
+app.spotify.client-id=YOUR_SPOTIFY_CLIENT_ID
+app.spotify.client-secret=YOUR_SPOTIFY_CLIENT_SECRET
 
 # Configuración CORS
 app.cors-origins=*
@@ -41,6 +41,6 @@ server.compression.min-response-size=2048
 
 # Configuración de la base de datos
 spring.data.mongodb.uri=mongodb://localhost:27017/FindSong
-jwt.secret=claveSecretaParaFirmarTokensDebeSerLargaYSegura
+jwt.secret=YOUR_JWT_SECRET_KEY
 jwt.expiration=86400000
-spring.main.allow-circular-references=true
+spring.main.allow-circular-references=true 
