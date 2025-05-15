@@ -130,4 +130,4 @@ Este proyecto está licenciado bajo la licencia MIT.
 
 ## Contacto
 Para cualquier consulta, puedes contactar al equipo de desarrollo en:
-[📧 findsongsupport@example.com]
+📧 xaviermg2504@gmail.com
