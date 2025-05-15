@@ -1,6 +1,6 @@
 package com.findsong.findsongapi.controller;
 
-import com.findsong.findsongapi.dto.AudioRecognitionResponseDto;
+import com.findsong.findsongapi.dto.ConsolidatedSongResponseDto;
 import com.findsong.findsongapi.dto.IdentifySongDto;
 import com.findsong.findsongapi.exception.BadRequestException;
 import com.findsong.findsongapi.service.AudioRecognitionService;
@@ -29,7 +29,7 @@ public class AudioRecognitionController {
     private static final int MAX_PROCESSED_SIZE = 500000;
 
     @PostMapping(value = "/identify", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<AudioRecognitionResponseDto> identifySong(
+    public ResponseEntity<ConsolidatedSongResponseDto> identifySong(
             @RequestParam("audio") MultipartFile file,
             @Valid IdentifySongDto identifySongDto) {
 
@@ -44,12 +44,12 @@ public class AudioRecognitionController {
             tempFilePath = fileStorageUtil.storeFile(file);
             byte[] audioData = readAndLimitAudioData(tempFilePath, file.getSize());
 
-            AudioRecognitionResponseDto result = audioRecognitionService.identifySong(audioData);
+            ConsolidatedSongResponseDto result = audioRecognitionService.identifySong(audioData);
             return ResponseEntity.ok(result);
         } catch (IOException e) {
             log.error("Error al identificar canción: {}", e.getMessage());
             return ResponseEntity.ok(
-                    AudioRecognitionResponseDto.builder()
+                    ConsolidatedSongResponseDto.builder()
                             .success(false)
                             .message("Error al procesar la solicitud: " + e.getMessage())
                             .build());

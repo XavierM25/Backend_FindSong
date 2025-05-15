@@ -1,369 +1,394 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FindSong - Reconocedor de Música</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            color: #333;
-        }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        color: #333;
+      }
 
-        .container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin-top: 20px;
-        }
+      .container {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin-top: 20px;
+      }
 
-        h1 {
-            color: #3498db;
-            text-align: center;
-            margin-bottom: 30px;
-        }
+      h1 {
+        color: #3498db;
+        text-align: center;
+        margin-bottom: 30px;
+      }
 
-        button {
-            background-color: #3498db;
-            border: none;
-            color: white;
-            padding: 12px 30px;
-            text-align: center;
-            font-size: 16px;
-            margin: 10px 0;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            width: 100%;
-        }
+      button {
+        background-color: #3498db;
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        text-align: center;
+        font-size: 16px;
+        margin: 10px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: 100%;
+      }
 
-        button:hover {
-            background-color: #2980b9;
-        }
+      button:hover {
+        background-color: #2980b9;
+      }
 
-        button:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
+      button:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed;
+      }
 
-        .status {
-            margin: 20px 0;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 16px;
-        }
+      .status {
+        margin: 20px 0;
+        padding: 15px;
+        border-radius: 5px;
+        font-size: 16px;
+      }
 
-        .recording {
-            background-color: #fef5f5;
-            border-left: 4px solid #e74c3c;
-            color: #e74c3c;
-        }
+      .recording {
+        background-color: #fef5f5;
+        border-left: 4px solid #e74c3c;
+        color: #e74c3c;
+      }
 
-        .listening {
-            background-color: #f0f9ff;
-            border-left: 4px solid #3498db;
-            color: #3498db;
-        }
+      .listening {
+        background-color: #f0f9ff;
+        border-left: 4px solid #3498db;
+        color: #3498db;
+      }
 
-        .recognized {
-            background-color: #efffef;
-            border-left: 4px solid #2ecc71;
-            color: #2ecc71;
-        }
+      .recognized {
+        background-color: #efffef;
+        border-left: 4px solid #2ecc71;
+        color: #2ecc71;
+      }
 
-        #result {
-            margin-top: 30px;
-            display: none;
-        }
+      #result {
+        margin-top: 30px;
+        display: none;
+      }
 
-        .song-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      .song-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-        .song-cover {
-            width: 180px;
-            height: 180px;
-            border-radius: 5px;
-            object-fit: cover;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+      .song-cover {
+        width: 180px;
+        height: 180px;
+        border-radius: 5px;
+        object-fit: cover;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
 
-        .song-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 10px 0 5px;
-            text-align: center;
-        }
+      .song-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 10px 0 5px;
+        text-align: center;
+      }
 
-        .song-artist {
-            font-size: 18px;
-            color: #666;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+      .song-artist {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 20px;
+        text-align: center;
+      }
 
-        .song-details {
-            margin-top: 15px;
-            width: 100%;
-        }
+      .song-details {
+        margin-top: 15px;
+        width: 100%;
+      }
 
-        .song-details div {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #eee;
-        }
+      .song-details div {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #eee;
+      }
 
-        .song-details .label {
-            font-weight: bold;
-            color: #555;
-        }
+      .song-details .label {
+        font-weight: bold;
+        color: #555;
+      }
 
-        .song-links {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 15px;
-        }
+      .song-links {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 15px;
+      }
 
-        .song-links a {
-            display: inline-block;
-            padding: 10px 15px;
-            background-color: #f8f8f8;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            border: 1px solid #ddd;
-            transition: all 0.3s;
-        }
+      .song-links a {
+        display: inline-block;
+        padding: 10px 15px;
+        background-color: #f8f8f8;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        transition: all 0.3s;
+      }
 
-        .song-links a:hover {
-            background-color: #eee;
-            transform: translateY(-2px);
-        }
+      .song-links a:hover {
+        background-color: #eee;
+        transform: translateY(-2px);
+      }
 
-        .loader {
-            display: none;
-            text-align: center;
-            margin: 20px 0;
-        }
+      .loader {
+        display: none;
+        text-align: center;
+        margin: 20px 0;
+      }
 
-        .loader div {
-            width: 10px;
-            height: 10px;
-            background-color: #3498db;
-            border-radius: 50%;
-            display: inline-block;
-            margin: 0 3px;
-            animation: bounce 1.5s infinite ease-in-out both;
-        }
+      .loader div {
+        width: 10px;
+        height: 10px;
+        background-color: #3498db;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 3px;
+        animation: bounce 1.5s infinite ease-in-out both;
+      }
 
-        .loader div:nth-child(1) { animation-delay: -0.3s; }
-        .loader div:nth-child(2) { animation-delay: -0.15s; }
+      .loader div:nth-child(1) {
+        animation-delay: -0.3s;
+      }
+      .loader div:nth-child(2) {
+        animation-delay: -0.15s;
+      }
 
-        @keyframes bounce {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1.0); }
+      @keyframes bounce {
+        0%,
+        80%,
+        100% {
+          transform: scale(0);
         }
+        40% {
+          transform: scale(1);
+        }
+      }
 
-        .error {
-            background-color: #fff2f2;
-            border-left: 4px solid #e74c3c;
-            padding: 15px;
-            margin: 20px 0;
-            color: #e74c3c;
-            border-radius: 5px;
-        }
+      .error {
+        background-color: #fff2f2;
+        border-left: 4px solid #e74c3c;
+        padding: 15px;
+        margin: 20px 0;
+        color: #e74c3c;
+        border-radius: 5px;
+      }
 
-        /* Estilos para la información del artista */
-        .artist-section {
-            display: flex;
-            margin: 20px 0;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 15px;
-        }
+      /* Estilos para la información del artista */
+      .artist-section {
+        display: flex;
+        margin: 20px 0;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 15px;
+      }
 
-        .artist-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-        }
+      .artist-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+      }
 
-        .artist-details {
-            flex: 1;
-        }
+      .artist-details {
+        flex: 1;
+      }
 
-        #artistBio {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 15px;
-            max-height: 120px;
-            overflow-y: auto;
-        }
+      #artistBio {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 15px;
+        max-height: 120px;
+        overflow-y: auto;
+      }
 
-        .artist-stats {
-            margin-bottom: 15px;
-        }
+      .artist-stats {
+        margin-bottom: 15px;
+      }
 
-        .artist-links a {
-            display: inline-flex;
-            align-items: center;
-            margin-right: 10px;
-            padding: 5px 10px;
-            background-color: #f0f0f0;
-            border-radius: 4px;
-            text-decoration: none;
-            color: #333;
-            font-size: 13px;
-        }
+      .artist-links a {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 10px;
+        padding: 5px 10px;
+        background-color: #f0f0f0;
+        border-radius: 4px;
+        text-decoration: none;
+        color: #333;
+        font-size: 13px;
+      }
 
-        /* Estilos para las canciones del álbum */
-        .tracks-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            max-height: 300px;
-            overflow-y: auto;
-        }
+      /* Estilos para las canciones del álbum */
+      .tracks-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        max-height: 300px;
+        overflow-y: auto;
+      }
 
-        .tracks-list li {
-            padding: 8px 10px;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-        }
+      .tracks-list li {
+        padding: 8px 10px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+      }
 
-        .tracks-list li:hover {
-            background-color: #f5f5f5;
-        }
+      .tracks-list li:hover {
+        background-color: #f5f5f5;
+      }
 
-        .track-number {
-            color: #999;
-            margin-right: 10px;
-            min-width: 25px;
-        }
+      .track-number {
+        color: #999;
+        margin-right: 10px;
+        min-width: 25px;
+      }
 
-        .track-title {
-            flex: 1;
-        }
+      .track-title {
+        flex: 1;
+      }
 
-        .track-duration {
-            color: #888;
-        }
+      .track-duration {
+        color: #888;
+      }
 
-        .current-track {
-            background-color: #e8f4fd;
-            font-weight: bold;
-        }
+      .current-track {
+        background-color: #e8f4fd;
+        font-weight: bold;
+      }
 
-        .play-preview {
-            background: none;
-            border: none;
-            color: #3498db;
-            cursor: pointer;
-            padding: 0 5px;
-        }
+      .play-preview {
+        background: none;
+        border: none;
+        color: #3498db;
+        cursor: pointer;
+        padding: 0 5px;
+      }
     </style>
-</head>
-<body>
-<div class="container">
-    <h1>FindSong</h1>
-    <p>Pulsa el botón para comenzar a escuchar música y averiguar qué canción está sonando.</p>
+  </head>
+  <body>
+    <div class="container">
+      <h1>FindSong</h1>
+      <p>
+        Pulsa el botón para comenzar a escuchar música y averiguar qué canción
+        está sonando.
+      </p>
 
-    <button id="startButton">Activar micrófono</button>
-    <button id="stopButton" disabled>Detener grabación</button>
+      <button id="startButton">Activar micrófono</button>
+      <button id="stopButton" disabled>Detener grabación</button>
 
-    <div id="statusMessage" class="status"></div>
+      <div id="statusMessage" class="status"></div>
 
-    <div id="loader" class="loader">
+      <div id="loader" class="loader">
         <div></div>
         <div></div>
         <div></div>
-    </div>
+      </div>
 
-    <div id="error" class="error" style="display: none;"></div>
+      <div id="error" class="error" style="display: none"></div>
 
-    <div id="result">
+      <div id="result">
         <div class="song-info">
-            <img id="coverArt" class="song-cover" src="" alt="Portada del álbum">
-            <div class="song-title" id="songTitle"></div>
-            <div class="song-artist" id="songArtist"></div>
+          <img
+            id="coverArt"
+            class="song-cover"
+            src=""
+            alt="Portada del álbum"
+          />
+          <div class="song-title" id="songTitle"></div>
+          <div class="song-artist" id="songArtist"></div>
         </div>
 
         <div class="song-details">
-            <div>
-                <span class="label">Álbum:</span>
-                <span id="songAlbum"></span>
-            </div>
-            <div>
-                <span class="label">Lanzamiento:</span>
-                <span id="songReleaseDate"></span>
-            </div>
-            <div>
-                <span class="label">Género:</span>
-                <span id="songGenre"></span>
-            </div>
+          <div>
+            <span class="label">Álbum:</span>
+            <span id="songAlbum"></span>
+          </div>
+          <div>
+            <span class="label">Lanzamiento:</span>
+            <span id="songReleaseDate"></span>
+          </div>
+          <div>
+            <span class="label">Género:</span>
+            <span id="songGenre"></span>
+          </div>
         </div>
 
         <!-- Nueva sección: Información del artista -->
-        <div id="artistInfo" style="display: none;">
-            <h3>Sobre el artista</h3>
-            <div class="artist-section">
-                <img id="artistImage" class="artist-image" src="" alt="Foto del artista">
-                <div class="artist-details">
-                    <div id="artistBio"></div>
-                    <div class="artist-stats">
-                        <div>
-                            <span class="label">Seguidores:</span>
-                            <span id="artistFollowers"></span>
-                        </div>
-                        <div>
-                            <span class="label">Popularidad:</span>
-                            <span id="artistPopularity"></span>
-                        </div>
-                    </div>
-                    <div class="artist-links" id="artistLinks"></div>
+        <div id="artistInfo" style="display: none">
+          <h3>Sobre el artista</h3>
+          <div class="artist-section">
+            <img
+              id="artistImage"
+              class="artist-image"
+              src=""
+              alt="Foto del artista"
+            />
+            <div class="artist-details">
+              <div id="artistBio"></div>
+              <div class="artist-stats">
+                <div>
+                  <span class="label">Seguidores:</span>
+                  <span id="artistFollowers"></span>
                 </div>
+                <div>
+                  <span class="label">Popularidad:</span>
+                  <span id="artistPopularity"></span>
+                </div>
+              </div>
+              <div class="artist-links" id="artistLinks"></div>
             </div>
+          </div>
         </div>
         <!-- Nueva sección: Otras canciones del álbum -->
-        <div id="albumTracks" style="display: none;">
-            <h3>Canciones del álbum</h3>
-            <div class="album-tracks-container">
-                <ul id="tracksList" class="tracks-list"></ul>
-            </div>
+        <div id="albumTracks" style="display: none">
+          <h3>Canciones del álbum</h3>
+          <div class="album-tracks-container">
+            <ul id="tracksList" class="tracks-list"></ul>
+          </div>
         </div>
 
         <div class="song-links">
-            <a id="spotifyLink" href="#" target="_blank">Abrir en Spotify</a>
-            <a id="appleMusicLink" href="#" target="_blank">Abrir en Apple Music</a>
-            <a id="previewLink" href="#" target="_blank">Escuchar Preview</a>
+          <a id="spotifyLink" href="#" target="_blank">Abrir en Spotify</a>
+          <a id="appleMusicLink" href="#" target="_blank"
+            >Abrir en Apple Music</a
+          >
+          <a id="previewLink" href="#" target="_blank">Escuchar Preview</a>
         </div>
+      </div>
     </div>
-</div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
         // Elementos del DOM
-        const startButton = document.getElementById('startButton');
-        const stopButton = document.getElementById('stopButton');
-        const statusMessage = document.getElementById('statusMessage');
-        const loader = document.getElementById('loader');
-        const error = document.getElementById('error');
-        const result = document.getElementById('result');
+        const startButton = document.getElementById("startButton");
+        const stopButton = document.getElementById("stopButton");
+        const statusMessage = document.getElementById("statusMessage");
+        const loader = document.getElementById("loader");
+        const error = document.getElementById("error");
+        const result = document.getElementById("result");
 
         // Variables para la grabación
         let mediaRecorder;
@@ -374,203 +399,303 @@
         const MAX_RECORDING_TIME = 10000;
 
         // Event listeners
-        startButton.addEventListener('click', startRecording);
-        stopButton.addEventListener('click', stopRecording);
+        startButton.addEventListener("click", startRecording);
+        stopButton.addEventListener("click", stopRecording);
 
         // Función para iniciar la grabación
         function startRecording() {
-            // Reseteamos el estado
-            resetUI();
+          // Reseteamos el estado
+          resetUI();
 
-            // Solicitamos acceso al micrófono
-            navigator.mediaDevices.getUserMedia({ audio: true })
-                .then(stream => {
-                    // Cambiamos el estado de los botones
-                    startButton.disabled = true;
-                    stopButton.disabled = false;
+          // Solicitamos acceso al micrófono
+          navigator.mediaDevices
+            .getUserMedia({ audio: true })
+            .then((stream) => {
+              // Cambiamos el estado de los botones
+              startButton.disabled = true;
+              stopButton.disabled = false;
 
-                    // Mostramos el estado
-                    statusMessage.textContent = "Escuchando música... Mantén el micrófono cerca de la fuente de sonido";
-                    statusMessage.className = "status listening";
+              // Mostramos el estado
+              statusMessage.textContent =
+                "Escuchando música... Mantén el micrófono cerca de la fuente de sonido";
+              statusMessage.className = "status listening";
 
-                    // Configuramos el MediaRecorder
-                    mediaRecorder = new MediaRecorder(stream);
+              // Configuramos el MediaRecorder
+              mediaRecorder = new MediaRecorder(stream);
 
-                    // Cuando hay datos disponibles, los guardamos
-                    mediaRecorder.ondataavailable = event => {
-                        audioChunks.push(event.data);
-                    };
+              // Cuando hay datos disponibles, los guardamos
+              mediaRecorder.ondataavailable = (event) => {
+                audioChunks.push(event.data);
+              };
 
-                    // Cuando la grabación termina, enviamos los datos
-                    mediaRecorder.onstop = () => {
-                        // Creamos un Blob con los datos de audio
-                        const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+              // Cuando la grabación termina, enviamos los datos
+              mediaRecorder.onstop = () => {
+                // Creamos un Blob con los datos de audio
+                const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
 
-                        // Enviamos el audio al servidor
-                        sendAudioToServer(audioBlob);
+                // Enviamos el audio al servidor
+                sendAudioToServer(audioBlob);
 
-                        // Detenemos todas las pistas del stream
-                        stream.getTracks().forEach(track => track.stop());
-                    };
+                // Detenemos todas las pistas del stream
+                stream.getTracks().forEach((track) => track.stop());
+              };
 
-                    // Empezamos a grabar
-                    audioChunks = [];
-                    mediaRecorder.start();
+              // Empezamos a grabar
+              audioChunks = [];
+              mediaRecorder.start();
 
-                    // Establecemos un timeout para detener la grabación después de un tiempo
-                    recordingTimeout = setTimeout(() => {
-                        if (mediaRecorder.state === 'recording') {
-                            stopRecording();
-                        }
-                    }, MAX_RECORDING_TIME);
-                })
-                .catch(err => {
-                    console.error('Error al acceder al micrófono:', err);
-                    showError('No se pudo acceder al micrófono. Por favor, asegúrate de dar permiso a la aplicación para usar el micrófono.');
-                });
+              // Establecemos un timeout para detener la grabación después de un tiempo
+              recordingTimeout = setTimeout(() => {
+                if (mediaRecorder.state === "recording") {
+                  stopRecording();
+                }
+              }, MAX_RECORDING_TIME);
+            })
+            .catch((err) => {
+              console.error("Error al acceder al micrófono:", err);
+              showError(
+                "No se pudo acceder al micrófono. Por favor, asegúrate de dar permiso a la aplicación para usar el micrófono."
+              );
+            });
         }
 
         // Función para detener la grabación
         function stopRecording() {
-            if (mediaRecorder && mediaRecorder.state === 'recording') {
-                clearTimeout(recordingTimeout);
-                mediaRecorder.stop();
+          if (mediaRecorder && mediaRecorder.state === "recording") {
+            clearTimeout(recordingTimeout);
+            mediaRecorder.stop();
 
-                // Actualizamos la UI
-                statusMessage.textContent = "Procesando audio...";
-                loader.style.display = 'block';
-                startButton.disabled = true;
-                stopButton.disabled = true;
-            }
+            // Actualizamos la UI
+            statusMessage.textContent = "Procesando audio...";
+            loader.style.display = "block";
+            startButton.disabled = true;
+            stopButton.disabled = true;
+          }
         }
 
         // Función para enviar el audio al servidor
         function sendAudioToServer(audioBlob) {
-            // Creamos un FormData para enviar el archivo
-            const formData = new FormData();
-            formData.append('audio', audioBlob, 'recording.wav');
-            formData.append('duration', '10'); // Duración en segundos
+          // Creamos un FormData para enviar el archivo
+          const formData = new FormData();
+          formData.append("audio", audioBlob, "recording.wav");
+          formData.append("duration", "10"); // Duración en segundos
 
-            // Ocultamos el mensaje de estado y mostramos el loader
-            statusMessage.style.display = 'none';
-            loader.style.display = 'block';
+          // Ocultamos el mensaje de estado y mostramos el loader
+          statusMessage.style.display = "none";
+          loader.style.display = "block";
 
-            // Mostrar mensaje de espera
-            document.getElementById('statusMessage').textContent = "Analizando audio... Esto puede tardar hasta 30 segundos";
-            document.getElementById('statusMessage').style.display = 'block';
+          // Mostrar mensaje de espera
+          document.getElementById("statusMessage").textContent =
+            "Analizando audio... Esto puede tardar hasta 30 segundos";
+          document.getElementById("statusMessage").style.display = "block";
 
-            // Enviamos la petición con un timeout largo
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 segundos de timeout
+          // Enviamos la petición con un timeout largo
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 segundos de timeout
 
-            fetch('/api/audio-recognition/identify', {
-                method: 'POST',
-                body: formData,
-                signal: controller.signal
+          fetch("/api/audio-recognition/identify", {
+            method: "POST",
+            body: formData,
+            signal: controller.signal,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Respuesta completa del servidor:", data);
+              loader.style.display = "none";
+              handleRecognitionResult(data);
             })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Respuesta completa del servidor:', data);
-                    loader.style.display = 'none';
-                    handleRecognitionResult(data);
-                })
-                .catch(err => {
-                    console.error('Error al enviar audio:', err);
-                    if (err.name === 'AbortError') {
-                        showError('La solicitud ha tardado demasiado tiempo. Inténtalo de nuevo con un fragmento de audio más corto.');
-                    } else {
-                        showError('Error al procesar la solicitud: ' + err.message);
-                    }
-                })
-                .finally(() => {
-                    clearTimeout(timeoutId);
-                    loader.style.display = 'none';
-                    startButton.disabled = false;
-                });
+            .catch((err) => {
+              console.error("Error al enviar audio:", err);
+              if (err.name === "AbortError") {
+                showError(
+                  "La solicitud ha tardado demasiado tiempo. Inténtalo de nuevo con un fragmento de audio más corto."
+                );
+              } else {
+                showError("Error al procesar la solicitud: " + err.message);
+              }
+            })
+            .finally(() => {
+              clearTimeout(timeoutId);
+              loader.style.display = "none";
+              startButton.disabled = false;
+            });
         }
 
         // Función para manejar el resultado del reconocimiento
         function handleRecognitionResult(data) {
-            if (data.success && data.song) {
-                // Mostramos los datos de la canción
-                const song = data.song;
+          if (data.success) {
+            // Mostramos los datos de la canción de Shazam
+            const shazamInfo = data.shazamInfo;
+            const spotifyInfo = data.spotifyInfo;
 
-                // Actualizar información básica de la canción
-                document.getElementById('songTitle').textContent = song.title || 'Desconocido';
-                document.getElementById('songArtist').textContent = song.artist || 'Artista desconocido';
-                document.getElementById('songAlbum').textContent = song.album || 'Desconocido';
-                document.getElementById('songReleaseDate').textContent = song.releaseDate || 'Desconocido';
-                document.getElementById('songGenre').textContent = song.genres && song.genres.length ? song.genres.join(', ') : 'Desconocido';
+            // Actualizar información básica de la canción
+            document.getElementById("songTitle").textContent =
+              shazamInfo.title || "Desconocido";
+            document.getElementById("songArtist").textContent =
+              shazamInfo.artist || "Artista desconocido";
+            document.getElementById("songAlbum").textContent =
+              shazamInfo.album || "Desconocido";
+            document.getElementById("songReleaseDate").textContent =
+              shazamInfo.releaseDate || "Desconocido";
+            document.getElementById("songGenre").textContent =
+              shazamInfo.genres && shazamInfo.genres.length
+                ? shazamInfo.genres.join(", ")
+                : "Desconocido";
 
-                // Actualizamos la imagen de portada
-                const coverArt = document.getElementById('coverArt');
-                if (song.coverArtUrl) {
-                    coverArt.src = song.coverArtUrl;
-                    coverArt.style.display = 'block';
-                } else {
-                    coverArt.style.display = 'none';
-                }
-
-                // Actualizamos los enlaces
-                const spotifyLink = document.getElementById('spotifyLink');
-                if (song.spotifyId) {
-                    spotifyLink.href = `https://open.spotify.com/track/${song.spotifyId.split(':').pop()}`;
-                    spotifyLink.style.display = 'inline-block';
-                } else {
-                    spotifyLink.style.display = 'none';
-                }
-
-                const appleMusicLink = document.getElementById('appleMusicLink');
-                if (song.appleMusicId) {
-                    appleMusicLink.href = `https://music.apple.com/us/album/${song.appleMusicId}`;
-                    appleMusicLink.style.display = 'inline-block';
-                } else {
-                    appleMusicLink.style.display = 'none';
-                }
-
-                const previewLink = document.getElementById('previewLink');
-                if (song.previewUrl) {
-                    previewLink.href = song.previewUrl;
-                    previewLink.style.display = 'inline-block';
-                } else {
-                    previewLink.style.display = 'none';
-                }
-
-                // Ocultar secciones que ya no están disponibles
-                document.getElementById('artistInfo').style.display = 'none';
-                document.getElementById('albumTracks').style.display = 'none';
-
-                // Mostrar el resultado
-                document.getElementById('result').style.display = 'block';
-                document.getElementById('statusMessage').className = "status recognized";
-                document.getElementById('statusMessage').textContent = "¡Canción reconocida!";
-                document.getElementById('statusMessage').style.display = 'block';
+            // Actualizamos la imagen de portada
+            const coverArt = document.getElementById("coverArt");
+            if (shazamInfo.coverArtUrl) {
+              coverArt.src = shazamInfo.coverArtUrl;
+              coverArt.style.display = "block";
             } else {
-                // Código para manejar errores
-                showError(data.message || 'No se pudo reconocer la canción. Intenta de nuevo con mejor calidad de audio.');
+              coverArt.style.display = "none";
             }
+
+            // Actualizamos los enlaces
+            const spotifyLink = document.getElementById("spotifyLink");
+            if (shazamInfo.spotifyId) {
+              spotifyLink.href = `https://open.spotify.com/track/${shazamInfo.spotifyId
+                .split(":")
+                .pop()}`;
+              spotifyLink.style.display = "inline-block";
+            } else {
+              spotifyLink.style.display = "none";
+            }
+
+            const appleMusicLink = document.getElementById("appleMusicLink");
+            if (shazamInfo.appleMusicId) {
+              appleMusicLink.href = `https://music.apple.com/us/album/${shazamInfo.appleMusicId}`;
+              appleMusicLink.style.display = "inline-block";
+            } else {
+              appleMusicLink.style.display = "none";
+            }
+
+            const previewLink = document.getElementById("previewLink");
+            if (shazamInfo.previewUrl) {
+              previewLink.href = shazamInfo.previewUrl;
+              previewLink.style.display = "inline-block";
+            } else {
+              previewLink.style.display = "none";
+            }
+
+            // Mostrar información del artista de Spotify si está disponible
+            if (spotifyInfo) {
+              const artistInfo = document.getElementById("artistInfo");
+              artistInfo.style.display = "block";
+
+              // Actualizar imagen del artista
+              const artistImage = document.getElementById("artistImage");
+              if (spotifyInfo.images && spotifyInfo.images.length > 0) {
+                artistImage.src = spotifyInfo.images[0].url;
+              }
+
+              // Actualizar biografía y estadísticas
+              document.getElementById("artistBio").textContent =
+                spotifyInfo.bio || "No hay biografía disponible";
+              document.getElementById("artistFollowers").textContent =
+                spotifyInfo.followers?.toLocaleString() || "0";
+
+              // Actualizar enlaces sociales
+              const artistLinks = document.getElementById("artistLinks");
+              artistLinks.innerHTML = "";
+              if (spotifyInfo.socialMedia) {
+                spotifyInfo.socialMedia.forEach((social) => {
+                  const link = document.createElement("a");
+                  link.href = social.url;
+                  link.target = "_blank";
+                  link.textContent = social.platform;
+                  artistLinks.appendChild(link);
+                });
+              }
+
+              // Mostrar álbumes si están disponibles
+              if (spotifyInfo.albums && spotifyInfo.albums.length > 0) {
+                const albumTracks = document.getElementById("albumTracks");
+                albumTracks.style.display = "block";
+
+                const tracksList = document.getElementById("tracksList");
+                tracksList.innerHTML = "";
+
+                spotifyInfo.albums.forEach((album) => {
+                  const albumHeader = document.createElement("li");
+                  albumHeader.className = "album-header";
+                  albumHeader.innerHTML = `<strong>${album.name}</strong> (${album.releaseDate})`;
+                  tracksList.appendChild(albumHeader);
+
+                  if (album.tracks) {
+                    album.tracks.forEach((track, index) => {
+                      const trackItem = document.createElement("li");
+                      trackItem.innerHTML = `
+                                        <span class="track-number">${
+                                          index + 1
+                                        }</span>
+                                        <span class="track-title">${
+                                          track.name
+                                        }</span>
+                                        <span class="track-duration">${formatDuration(
+                                          track.duration
+                                        )}</span>
+                                        ${
+                                          track.previewUrl
+                                            ? `<button class="play-preview" onclick="playPreview('${track.previewUrl}')">▶</button>`
+                                            : ""
+                                        }
+                                    `;
+                      tracksList.appendChild(trackItem);
+                    });
+                  }
+                });
+              }
+            }
+
+            // Mostrar el resultado
+            document.getElementById("result").style.display = "block";
+            document.getElementById("statusMessage").className =
+              "status recognized";
+            document.getElementById("statusMessage").textContent =
+              "¡Canción reconocida!";
+            document.getElementById("statusMessage").style.display = "block";
+          } else {
+            showError(
+              data.message ||
+                "No se pudo reconocer la canción. Intenta de nuevo con mejor calidad de audio."
+            );
+          }
+        }
+
+        // Función auxiliar para formatear la duración
+        function formatDuration(ms) {
+          const minutes = Math.floor(ms / 60000);
+          const seconds = Math.floor((ms % 60000) / 1000);
+          return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+        }
+
+        // Función para reproducir preview
+        function playPreview(url) {
+          const audio = new Audio(url);
+          audio.play();
         }
 
         // Función para mostrar errores
         function showError(message) {
-            error.textContent = message;
-            error.style.display = 'block';
-            result.style.display = 'none';
-            statusMessage.style.display = 'none';
-            startButton.disabled = false;
-            stopButton.disabled = true;
+          error.textContent = message;
+          error.style.display = "block";
+          result.style.display = "none";
+          statusMessage.style.display = "none";
+          startButton.disabled = false;
+          stopButton.disabled = true;
         }
 
         // Función para resetear la UI
         function resetUI() {
-            error.style.display = 'none';
-            result.style.display = 'none';
-            loader.style.display = 'none';
-            statusMessage.textContent = '';
-            statusMessage.className = 'status';
-            statusMessage.style.display = 'block';
+          error.style.display = "none";
+          result.style.display = "none";
+          loader.style.display = "none";
+          statusMessage.textContent = "";
+          statusMessage.className = "status";
+          statusMessage.style.display = "block";
         }
-    });
-</script>
-</body>
+      });
+    </script>
+  </body>
 </html>
