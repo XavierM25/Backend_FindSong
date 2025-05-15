@@ -26,20 +26,16 @@ public class ResponseTransformerInterceptor implements HandlerInterceptor {
             Object handler,
             ModelAndView modelAndView) {
 
-        // Solo procesamos respuestas de la API
         if (!request.getRequestURI().startsWith(API_PATH_PREFIX)) {
             return;
         }
 
-        // Solo procesamos respuestas exitosas con contenido
         if (response.getStatus() < 200 || response.getStatus() >= 300 ||
                 response.getContentType() == null ||
                 !response.getContentType().contains("application/json")) {
             return;
         }
 
-        // Aquí podríamos agregar metadatos o transformar la respuesta si fuera necesario
-        // Por ejemplo, agregar tiempos de respuesta, versión de API, etc.
         log.debug("Procesando respuesta para: {}", request.getRequestURI());
     }
 }

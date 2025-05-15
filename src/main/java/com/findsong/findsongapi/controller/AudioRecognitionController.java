@@ -26,7 +26,6 @@ public class AudioRecognitionController {
     private final AudioRecognitionService audioRecognitionService;
     private final FileStorageUtil fileStorageUtil;
 
-    // Tamaño máximo para procesar (500KB)
     private static final int MAX_PROCESSED_SIZE = 500000;
 
     @PostMapping(value = "/identify", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
@@ -55,7 +54,6 @@ public class AudioRecognitionController {
                             .message("Error al procesar la solicitud: " + e.getMessage())
                             .build());
         } finally {
-            // Aseguramos que el archivo temporal se elimine
             if (tempFilePath != null) {
                 fileStorageUtil.deleteFile(tempFilePath);
             }

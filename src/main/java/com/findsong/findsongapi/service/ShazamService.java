@@ -21,7 +21,7 @@ public class ShazamService {
 
     private final AppConfig appConfig;
     private final ObjectMapper objectMapper;
-    private static final int MAX_AUDIO_SIZE = 500000; // 500KB
+    private static final int MAX_AUDIO_SIZE = 500000;
     private static final String SHAZAM_API_URL = "https://shazam-song-recognition-api.p.rapidapi.com/recognize/file";
     private static final String CONTENT_TYPE = "application/octet-stream";
 
@@ -31,7 +31,6 @@ public class ShazamService {
         this.appConfig = appConfig;
         this.objectMapper = objectMapper;
 
-        // Usar la configuración del AppConfig
         this.okHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(appConfig.getHttp().getConnectTimeout(), TimeUnit.MILLISECONDS)
                 .readTimeout(appConfig.getHttp().getReadTimeout(), TimeUnit.MILLISECONDS)
@@ -41,7 +40,6 @@ public class ShazamService {
 
     public AudioRecognitionResponseDto identifySong(byte[] audioData) {
         try {
-            // Limitar tamaño si es necesario
             byte[] processedAudioData = limitAudioSize(audioData);
 
             RequestBody requestBody = RequestBody.create(MediaType.parse(CONTENT_TYPE), processedAudioData);
