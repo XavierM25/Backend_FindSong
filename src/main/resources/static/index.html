@@ -390,6 +390,50 @@
         cursor: pointer;
         padding: 0 5px;
       }
+
+      /* Estilos para los botones de servicio de streaming */
+      .track-actions {
+        display: flex;
+        gap: 5px;
+        margin-left: 10px;
+      }
+
+      .stream-button {
+        background: none;
+        border: none;
+        padding: 3px 5px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+      }
+
+      .stream-button:hover {
+        transform: translateY(-2px);
+      }
+
+      .spotify-button {
+        color: #1db954;
+        border: 1px solid #1db954;
+      }
+
+      .spotify-button:hover {
+        background-color: #1db954;
+        color: white;
+      }
+
+      .apple-button {
+        color: #fb233b;
+        border: 1px solid #fb233b;
+      }
+
+      .apple-button:hover {
+        background-color: #fb233b;
+        color: white;
+      }
     </style>
   </head>
   <body>
@@ -789,6 +833,37 @@
                         trackItem.className = "current-track";
                       }
 
+                      // Crear los botones de acciones
+                      const trackActions = document.createElement("div");
+                      trackActions.className = "track-actions";
+
+                      // Botón de Spotify
+                      const spotifyButton = document.createElement("button");
+                      spotifyButton.className = "stream-button spotify-button";
+                      spotifyButton.innerHTML =
+                        '<i class="fab fa-spotify"></i>';
+                      spotifyButton.title = "Abrir en Spotify";
+                      spotifyButton.onclick = function (e) {
+                        e.stopPropagation();
+                        openInSpotify(
+                          track.spotifyId,
+                          spotifyInfo.name,
+                          track.name
+                        );
+                      };
+                      trackActions.appendChild(spotifyButton);
+
+                      // Botón de Apple Music
+                      const appleButton = document.createElement("button");
+                      appleButton.className = "stream-button apple-button";
+                      appleButton.innerHTML = '<i class="fab fa-apple"></i>';
+                      appleButton.title = "Abrir en Apple Music";
+                      appleButton.onclick = function (e) {
+                        e.stopPropagation();
+                        openInAppleMusic(spotifyInfo.name, track.name);
+                      };
+                      trackActions.appendChild(appleButton);
+
                       trackItem.innerHTML = `
                         <span class="track-number">${index + 1}</span>
                         <span class="track-title">${track.name}${
@@ -803,6 +878,8 @@
                             : ""
                         }
                       `;
+                      // Agregar los botones de acciones
+                      trackItem.appendChild(trackActions);
                       tracksList.appendChild(trackItem);
                     });
                   }
@@ -850,6 +927,31 @@
           statusMessage.textContent = "";
           statusMessage.className = "status";
           statusMessage.style.display = "block";
+        }
+
+        // Función para abrir una canción en Spotify
+        function openInSpotify(trackId, artistName, trackName) {
+          // Si tenemos el ID específico de la canción
+          if (trackId) {
+            window.open(`https://open.spotify.com/track/${trackId}`, "_blank");
+            return;
+          }
+
+          // Si no tenemos el ID, construimos una URL de búsqueda
+          const searchQuery = encodeURIComponent(`${artistName} ${trackName}`);
+          window.open(
+            `https://open.spotify.com/search/${searchQuery}`,
+            "_blank"
+          );
+        }
+
+        // Función para abrir una canción en Apple Music
+        function openInAppleMusic(artistName, trackName) {
+          const searchQuery = encodeURIComponent(`${artistName} ${trackName}`);
+          window.open(
+            `https://music.apple.com/search?term=${searchQuery}`,
+            "_blank"
+          );
         }
       });
     </script>

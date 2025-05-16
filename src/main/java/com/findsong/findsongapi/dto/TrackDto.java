@@ -14,4 +14,5 @@ public class TrackDto {
     private String name;
     private Integer duration;
     private String previewUrl;
-} 
+    private String spotifyId;
+}

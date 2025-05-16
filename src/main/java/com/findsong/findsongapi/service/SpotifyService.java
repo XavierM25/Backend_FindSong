@@ -529,6 +529,7 @@ public class SpotifyService {
                         .name(track.get("name").asText())
                         .duration(track.get("duration_ms").asInt())
                         .previewUrl(track.has("preview_url") ? track.get("preview_url").asText() : null)
+                        .spotifyId(track.get("id").asText())
                         .build());
             }
 
