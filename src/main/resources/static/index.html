@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FindSong - Reconocedor de Música</title>
+    <!-- Añadir Font Awesome para iconos de redes sociales -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -222,22 +227,114 @@
         margin-bottom: 15px;
         max-height: 120px;
         overflow-y: auto;
+        line-height: 1.5;
+        text-align: justify;
+        position: relative;
+        transition: max-height 0.5s ease;
+      }
+
+      #artistBio.expanded {
+        max-height: 500px;
+      }
+
+      .bio-toggle {
+        display: inline-block;
+        color: #3498db;
+        cursor: pointer;
+        text-decoration: underline;
+        margin-top: 5px;
+        font-size: 13px;
       }
 
       .artist-stats {
         margin-bottom: 15px;
       }
 
-      .artist-links a {
+      /* Nuevos estilos para redes sociales */
+      .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .social-links a {
         display: inline-flex;
         align-items: center;
-        margin-right: 10px;
-        padding: 5px 10px;
-        background-color: #f0f0f0;
-        border-radius: 4px;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
         text-decoration: none;
-        color: #333;
-        font-size: 13px;
+        color: white;
+        font-size: 20px;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .social-links a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .social-links .facebook {
+        background-color: #3b5998;
+      }
+
+      .social-links .twitter {
+        background-color: #1da1f2;
+      }
+
+      .social-links .instagram {
+        background: linear-gradient(
+          45deg,
+          #405de6,
+          #5851db,
+          #833ab4,
+          #c13584,
+          #e1306c,
+          #fd1d1d
+        );
+      }
+
+      .social-links .youtube {
+        background-color: #ff0000;
+      }
+
+      .social-links .tiktok {
+        background-color: #000000;
+      }
+
+      .social-links .spotify {
+        background-color: #1db954;
+      }
+
+      .social-links .soundcloud {
+        background-color: #ff7700;
+      }
+
+      .social-links .apple {
+        background-color: #a2aaad;
+      }
+
+      .social-links .deezer {
+        background-color: #00c7f2;
+      }
+
+      .social-links .amazon {
+        background-color: #ff9900;
+      }
+
+      .social-links .pinterest {
+        background-color: #e60023;
+      }
+
+      .social-links .linkedin {
+        background-color: #0077b5;
+      }
+
+      .social-links .default {
+        background-color: #777777;
       }
 
       /* Estilos para las canciones del álbum */
@@ -258,6 +355,13 @@
 
       .tracks-list li:hover {
         background-color: #f5f5f5;
+      }
+
+      .album-header {
+        background-color: #f0f0f0;
+        font-weight: bold;
+        padding: 10px;
+        margin-top: 10px;
       }
 
       .track-number {
@@ -336,7 +440,7 @@
           </div>
         </div>
 
-        <!-- Nueva sección: Información del artista -->
+        <!-- Sección: Información del artista -->
         <div id="artistInfo" style="display: none">
           <h3>Sobre el artista</h3>
           <div class="artist-section">
@@ -353,16 +457,14 @@
                   <span class="label">Seguidores:</span>
                   <span id="artistFollowers"></span>
                 </div>
-                <div>
-                  <span class="label">Popularidad:</span>
-                  <span id="artistPopularity"></span>
-                </div>
               </div>
-              <div class="artist-links" id="artistLinks"></div>
+              <h4>Redes sociales</h4>
+              <div class="social-links" id="artistLinks"></div>
             </div>
           </div>
         </div>
-        <!-- Nueva sección: Otras canciones del álbum -->
+
+        <!-- Sección: Canciones del álbum -->
         <div id="albumTracks" style="display: none">
           <h3>Canciones del álbum</h3>
           <div class="album-tracks-container">
@@ -381,6 +483,12 @@
     </div>
 
     <script>
+      // Función global para reproducir preview de canciones
+      function playPreview(url) {
+        const audio = new Audio(url);
+        audio.play();
+      }
+
       document.addEventListener("DOMContentLoaded", function () {
         // Elementos del DOM
         const startButton = document.getElementById("startButton");
@@ -521,6 +629,28 @@
             });
         }
 
+        // Función para obtener icono correspondiente a la plataforma
+        function getSocialIcon(platform) {
+          const platformLower = platform.toLowerCase();
+          const iconMap = {
+            spotify: '<i class="fab fa-spotify"></i>',
+            instagram: '<i class="fab fa-instagram"></i>',
+            facebook: '<i class="fab fa-facebook-f"></i>',
+            twitter: '<i class="fab fa-twitter"></i>',
+            x: '<i class="fab fa-twitter"></i>',
+            youtube: '<i class="fab fa-youtube"></i>',
+            tiktok: '<i class="fab fa-tiktok"></i>',
+            soundcloud: '<i class="fab fa-soundcloud"></i>',
+            "apple music": '<i class="fab fa-apple"></i>',
+            "amazon music": '<i class="fab fa-amazon"></i>',
+            pinterest: '<i class="fab fa-pinterest-p"></i>',
+            linkedin: '<i class="fab fa-linkedin-in"></i>',
+            deezer: '<i class="fas fa-music"></i>',
+          };
+
+          return iconMap[platformLower] || '<i class="fas fa-link"></i>';
+        }
+
         // Función para manejar el resultado del reconocimiento
         function handleRecognitionResult(data) {
           if (data.success) {
@@ -590,22 +720,49 @@
               }
 
               // Actualizar biografía y estadísticas
-              document.getElementById("artistBio").textContent =
+              const artistBioElement = document.getElementById("artistBio");
+              artistBioElement.textContent =
                 spotifyInfo.bio || "No hay biografía disponible";
+
+              // Añadir botón para expandir/contraer la bio si es larga
+              if (spotifyInfo.bio && spotifyInfo.bio.length > 200) {
+                const bioToggle = document.createElement("span");
+                bioToggle.className = "bio-toggle";
+                bioToggle.textContent = "Mostrar más";
+                bioToggle.onclick = function () {
+                  if (artistBioElement.classList.contains("expanded")) {
+                    artistBioElement.classList.remove("expanded");
+                    bioToggle.textContent = "Mostrar más";
+                  } else {
+                    artistBioElement.classList.add("expanded");
+                    bioToggle.textContent = "Mostrar menos";
+                  }
+                };
+
+                // Añadir el botón después de la bio
+                artistBioElement.parentNode.insertBefore(
+                  bioToggle,
+                  artistBioElement.nextSibling
+                );
+              }
+
               document.getElementById("artistFollowers").textContent =
                 spotifyInfo.followers?.toLocaleString() || "0";
 
-              // Actualizar enlaces sociales
+              // Actualizar enlaces sociales con íconos
               const artistLinks = document.getElementById("artistLinks");
               artistLinks.innerHTML = "";
-              if (spotifyInfo.socialMedia) {
-                spotifyInfo.socialMedia.forEach((social) => {
-                  const link = document.createElement("a");
-                  link.href = social.url;
-                  link.target = "_blank";
-                  link.textContent = social.platform;
-                  artistLinks.appendChild(link);
-                });
+
+              // Verificar si hay un enlace a Spotify
+              if (spotifyInfo.spotifyUrl) {
+                const spotifyLink = document.createElement("a");
+                spotifyLink.href = spotifyInfo.spotifyUrl;
+                spotifyLink.target = "_blank";
+                spotifyLink.rel = "noopener noreferrer";
+                spotifyLink.className = "spotify";
+                spotifyLink.title = "Spotify";
+                spotifyLink.innerHTML = '<i class="fab fa-spotify"></i>';
+                artistLinks.appendChild(spotifyLink);
               }
 
               // Mostrar álbumes si están disponibles
@@ -625,22 +782,27 @@
                   if (album.tracks) {
                     album.tracks.forEach((track, index) => {
                       const trackItem = document.createElement("li");
+                      const isCurrentTrack =
+                        track.name.toLowerCase() ===
+                        shazamInfo.title.toLowerCase();
+                      if (isCurrentTrack) {
+                        trackItem.className = "current-track";
+                      }
+
                       trackItem.innerHTML = `
-                                        <span class="track-number">${
-                                          index + 1
-                                        }</span>
-                                        <span class="track-title">${
-                                          track.name
-                                        }</span>
-                                        <span class="track-duration">${formatDuration(
-                                          track.duration
-                                        )}</span>
-                                        ${
-                                          track.previewUrl
-                                            ? `<button class="play-preview" onclick="playPreview('${track.previewUrl}')">▶</button>`
-                                            : ""
-                                        }
-                                    `;
+                        <span class="track-number">${index + 1}</span>
+                        <span class="track-title">${track.name}${
+                        isCurrentTrack ? " <small>(Canción actual)</small>" : ""
+                      }</span>
+                        <span class="track-duration">${formatDuration(
+                          track.duration
+                        )}</span>
+                        ${
+                          track.previewUrl
+                            ? `<button class="play-preview" onclick="playPreview('${track.previewUrl}')">▶</button>`
+                            : ""
+                        }
+                      `;
                       tracksList.appendChild(trackItem);
                     });
                   }
@@ -668,12 +830,6 @@
           const minutes = Math.floor(ms / 60000);
           const seconds = Math.floor((ms % 60000) / 1000);
           return `${minutes}:${seconds.toString().padStart(2, "0")}`;
-        }
-
-        // Función para reproducir preview
-        function playPreview(url) {
-          const audio = new Audio(url);
-          audio.play();
         }
 
         // Función para mostrar errores

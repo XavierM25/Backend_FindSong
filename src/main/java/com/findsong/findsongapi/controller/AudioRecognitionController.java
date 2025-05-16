@@ -45,6 +45,7 @@ public class AudioRecognitionController {
             byte[] audioData = readAndLimitAudioData(tempFilePath, file.getSize());
 
             ConsolidatedSongResponseDto result = audioRecognitionService.identifySong(audioData);
+
             return ResponseEntity.ok(result);
         } catch (IOException e) {
             log.error("Error al identificar canción: {}", e.getMessage());

@@ -1,4 +1,4 @@
-package com.findsong.findsongapi.config;
+package com.findsong.findsongapi.auth.service;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

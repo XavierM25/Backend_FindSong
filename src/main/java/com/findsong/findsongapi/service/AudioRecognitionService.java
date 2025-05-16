@@ -27,9 +27,15 @@ public class AudioRecognitionService {
                         .build();
             }
 
+            log.info("Canción identificada correctamente: {} - {}",
+                    shazamResponse.getSong().getTitle(),
+                    shazamResponse.getSong().getArtist());
+
             // Obtener información de Spotify
-            SpotifyArtistDto spotifyInfo = spotifyService.getArtistInfo(shazamResponse.getSong().getArtist());
-            
+            SpotifyArtistDto spotifyInfo = spotifyService.getArtistInfo(
+                    shazamResponse.getSong().getArtist(),
+                    shazamResponse.getSong().getTitle());
+
             return ConsolidatedSongResponseDto.builder()
                     .success(true)
                     .message("Canción identificada correctamente")
