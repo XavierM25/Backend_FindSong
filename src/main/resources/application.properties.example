@@ -1,6 +1,20 @@
+# ==========================================================================
+# CONFIGURACIÓN GENERAL DEL SERVIDOR
+# ==========================================================================
 # Puerto del servidor
 server.port=3000
 
+# Configuración de la ruta base
+server.servlet.context-path=/
+
+# Comprimir respuestas
+server.compression.enabled=true
+server.compression.mime-types=application/json,application/xml,text/html,text/plain
+server.compression.min-response-size=2048
+
+# ==========================================================================
+# CONFIGURACIÓN APIS EXTERNAS
+# ==========================================================================
 # Configuración RapidAPI (para Shazam)
 app.rapid-api-key=YOUR_RAPIDAPI_KEY
 app.shazam.api-host=shazam-song-recognition-api.p.rapidapi.com
@@ -11,36 +25,72 @@ app.shazam.max-audio-size=500000
 app.spotify.client-id=YOUR_SPOTIFY_CLIENT_ID
 app.spotify.client-secret=YOUR_SPOTIFY_CLIENT_SECRET
 
+# ==========================================================================
+# CONFIGURACIÓN DE SEGURIDAD
+# ==========================================================================
+# JWT Secret y expiración (24 horas por defecto)
+jwt.secret=YOUR_JWT_SECRET_KEY_SHOULD_BE_AT_LEAST_32_CHARACTERS_LONG
+jwt.expiration=86400000
+
 # Configuración CORS
 app.cors-origins=*
 
-# Configuración de tiempos de espera para conexiones HTTP
+# ==========================================================================
+# CONFIGURACIÓN DE CONEXIONES HTTP
+# ==========================================================================
+# Configuración de tiempos de espera para conexiones HTTP (en milisegundos)
 app.http.connect-timeout=30000
 app.http.read-timeout=30000
 app.http.write-timeout=30000
 
+# ==========================================================================
+# CONFIGURACIÓN DE ARCHIVOS
+# ==========================================================================
 # Configuración de subida de archivos
 spring.servlet.multipart.max-file-size=10MB
 spring.servlet.multipart.max-request-size=10MB
 spring.servlet.multipart.location=${java.io.tmpdir}/findsong-uploads
 
-# Configuración de logs
+# ==========================================================================
+# CONFIGURACIÓN DE LOGS
+# ==========================================================================
 logging.level.com.findsong=INFO
 logging.level.org.springframework.web=INFO
 logging.file.name=logs/findsong.log
 logging.file.max-size=10MB
 logging.file.max-history=7
 
-# Configuración de la ruta base
-server.servlet.context-path=/
-
-# Comprimir respuestas
-server.compression.enabled=true
-server.compression.mime-types=application/json,application/xml,text/html,text/plain
-server.compression.min-response-size=2048
-
-# Configuración de la base de datos
+# ==========================================================================
+# CONFIGURACIÓN DE BASE DE DATOS
+# ==========================================================================
+# MongoDB - Asegúrate de que tu instancia de MongoDB esté ejecutándose
 spring.data.mongodb.uri=mongodb://localhost:27017/FindSong
-jwt.secret=YOUR_JWT_SECRET_KEY
-jwt.expiration=86400000
+
+# ==========================================================================
+# CONFIGURACIÓN DE CACHE
+# ==========================================================================
+# Tiempo máximo de vida para entradas en caché (1 hora)
+spring.cache.cache-names=spotifyArtists,spotifyAlbums,shazamResults
+spring.cache.caffeine.spec=expireAfterWrite=1h
+
+# ==========================================================================
+# CONFIGURACIÓN DE ACTUATOR
+# ==========================================================================
+# Endpoints a exponer
+management.endpoints.web.exposure.include=health,info,metrics,prometheus
+management.endpoint.health.show-details=when_authorized
+management.info.env.enabled=true
+management.info.java.enabled=true
+management.info.os.enabled=true
+info.app.name=FindSong API
+info.app.description=API para reconocimiento de canciones
+info.app.version=0.1.0
+
+# ==========================================================================
+# CONFIGURACIÓN MISCELÁNEA
+# ==========================================================================
+# Nombre de la aplicación
+spring.application.name=FindSongAPI
+
+# Permite referencias circulares (eliminar en versiones futuras)
 spring.main.allow-circular-references=true 

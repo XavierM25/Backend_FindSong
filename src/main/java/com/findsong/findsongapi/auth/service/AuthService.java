@@ -7,8 +7,11 @@ import com.findsong.findsongapi.auth.dto.RegisterRequestDto;
 import com.findsong.findsongapi.auth.model.User;
 import com.findsong.findsongapi.auth.repository.UserRepository;
 import com.findsong.findsongapi.auth.security.JwtUtils;
+import com.findsong.findsongapi.exception.BadRequestException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,6 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class AuthService implements UserDetailsService {
 
     private final UserRepository userRepository;
@@ -24,8 +28,8 @@ public class AuthService implements UserDetailsService {
     private AuthenticationManager authenticationManager;
 
     public AuthService(UserRepository userRepository,
-                       PasswordEncoder passwordEncoder,
-                       JwtUtils jwtUtils) {
+            PasswordEncoder passwordEncoder,
+            JwtUtils jwtUtils) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtUtils = jwtUtils;
@@ -36,13 +40,26 @@ public class AuthService implements UserDetailsService {
     }
 
     public AuthResponseDto register(RegisterRequestDto request) {
+        // Validar que el usuario no exista
+        if (userRepository.existsByUsername(request.getUsername())) {
+            throw new BadRequestException("El nombre de usuario ya está en uso");
+        }
+
+        // Validar que el email no exista
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new BadRequestException("El correo electrónico ya está en uso");
+        }
+
         User user = User.builder()
                 .username(request.getUsername())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .roles(List.of("ROLE_USER"))
                 .build();
+
         userRepository.save(user);
+        log.info("Usuario registrado: {}", user.getUsername());
+
         String token = jwtUtils.generateToken(user);
         return AuthResponseDto.builder()
                 .token(token)
@@ -52,26 +69,36 @@ public class AuthService implements UserDetailsService {
 
     public AuthResponseDto login(LoginRequestDto request) {
         if (authenticationManager == null) {
+            log.error("AuthenticationManager no inicializado");
             throw new IllegalStateException("AuthenticationManager no ha sido inicializado");
         }
 
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
-        );
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
 
-        User user = userRepository.findByUsername(request.getUsername())
-                .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
+            User user = userRepository.findByUsername(request.getUsername())
+                    .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
 
-        String token = jwtUtils.generateToken(user);
-        return AuthResponseDto.builder()
-                .token(token)
-                .username(user.getUsername())
-                .build();
+            log.info("Usuario autenticado: {}", user.getUsername());
+            String token = jwtUtils.generateToken(user);
+
+            return AuthResponseDto.builder()
+                    .token(token)
+                    .username(user.getUsername())
+                    .build();
+        } catch (AuthenticationException e) {
+            log.warn("Error de autenticación para usuario {}: {}", request.getUsername(), e.getMessage());
+            throw new BadRequestException("Credenciales inválidas");
+        }
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
+                .orElseThrow(() -> {
+                    log.warn("Usuario no encontrado: {}", username);
+                    return new UsernameNotFoundException("Usuario no encontrado: " + username);
+                });
     }
 }

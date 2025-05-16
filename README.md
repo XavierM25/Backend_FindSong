@@ -1,156 +1,111 @@
 # FindSong API
 
-API de reconocimiento de música que permite identificar canciones a partir de grabaciones de audio.
-
-## Descripción
-
-FindSong API es un servicio backend desarrollado con Spring Boot que utiliza la API de Shazam para identificar canciones. La aplicación recibe fragmentos de audio, los procesa y devuelve información detallada sobre la canción identificada, incluyendo título, artista, álbum, y enlaces a plataformas de streaming.
+API de reconocimiento de música desarrollada con Spring Boot que permite identificar canciones mediante fragmentos de audio.
 
 ## Características
 
-- Reconocimiento de audio para identificar canciones
-- Interfaz web sencilla para probar el servicio
-- Autenticación mediante JWT para endpoints protegidos
-- Validación de datos de entrada
-- Gestión de errores centralizada
-- Soporte para CORS
+- Reconocimiento de canciones mediante la API de Shazam
+- Enriquecimiento de la información con datos de Spotify
+- Autenticación mediante JWT
+- Caché de respuestas para mejorar el rendimiento
+- Endpoints de monitoreo de salud
+- Soporte para MongoDB como base de datos
 
-## Tecnologías utilizadas
+## Requisitos
 
-- Java 17
-- Spring Boot 3.2.0
-- Spring Security
+- Java 17 o superior
+- Maven 3.8+
 - MongoDB
-- JWT para autenticación
-- OkHttp3 para llamadas a APIs externas
-- Lombok
-
-## Requisitos previos
-
-- JDK 17 o superior
-- Maven 3.6 o superior
-- MongoDB (opcional, solo si se usa la funcionalidad de usuarios)
-- Clave de API de RapidAPI para el servicio de Shazam
-- Credenciales de Spotify (Client ID y Client Secret)
+- Cuenta en RapidAPI (Shazam)
+- Cuenta en Spotify Developer
 
 ## Instalación
 
-1. Clona el repositorio:
+1. Clonar el repositorio:
 
    ```bash
    git clone https://github.com/tuusuario/findsong-api.git
    cd findsong-api
    ```
 
-2. Configura las propiedades de la aplicación:
+2. Configurar las credenciales:
+
+   - Copiar `src/main/resources/application.properties.example` a `src/main/resources/application.properties`
+   - Actualizar las credenciales de RapidAPI y Spotify en el archivo
+
+3. Construir el proyecto:
 
    ```bash
-   cp src/main/resources/application.properties.example src/main/resources/application.properties
+   mvn clean install
    ```
 
-   Edita el archivo `src/main/resources/application.properties` con tus claves API:
-
-   ```properties
-   app.rapid-api-key=tu-clave-rapidapi-aqui
-   app.spotify.client-id=tu-client-id-spotify-aqui
-   app.spotify.client-secret=tu-client-secret-spotify-aqui
-   jwt.secret=tu-clave-secreta-jwt-aqui
-   ```
-
-   > ⚠️ **IMPORTANTE:** El archivo `application.properties` contiene información sensible y está configurado para ser ignorado por Git. No lo agregues al control de versiones.
-
-3. Compila el proyecto:
-
+4. Ejecutar la aplicación:
    ```bash
-   ./mvnw clean package
-   ```
-
-4. Ejecuta la aplicación:
-   ```bash
-   ./mvnw spring-boot:run
+   mvn spring-boot:run
    ```
 
 ## Uso
 
-Endpoints principales
+### Reconocimiento de canciones
 
-    GET /api: Endpoint de estado para verificar que el servicio esté funcionando
-
-    POST /api/audio-recognition/identify: Identifica una canción a partir de un archivo de audio
-
-    POST /api/auth/login: Inicia sesión de usuario (si se implementa)
-
-## Ejemplo de uso con cURL
-
-```properties
+```bash
 curl -X POST \
-http://localhost:3000/api/audio-recognition/identify \
--H 'Content-Type: multipart/form-data' \
--F 'audio=@ruta/a/tu/archivo/audio.mp3' \
--F 'duration=10'
+  'http://localhost:3000/api/audio-recognition/identify' \
+  -H 'Content-Type: multipart/form-data' \
+  -F 'audio=@ruta/al/archivo/audio.mp3' \
+  -F 'duration=10'
 ```
 
-## Respuesta de ejemplo
+### Autenticación
 
-```json
-{
-  "success": true,
-  "song": {
-    "title": "Nombre de la canción",
-    "artist": "Nombre del artista",
-    "album": "Nombre del álbum",
-    "releaseDate": "2023",
-    "genres": ["Pop"],
-    "spotifyId": "identificador-spotify",
-    "appleMusicId": "identificador-apple-music",
-    "coverArtUrl": "https://ejemplo.com/portada.jpg",
-    "previewUrl": "https://ejemplo.com/preview.mp3"
-  },
-  "message": "Canción identificada correctamente"
-}
+**Registro:**
+
+```bash
+curl -X POST \
+  'http://localhost:3000/api/auth/register' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "username": "usuario",
+    "email": "usuario@ejemplo.com",
+    "password": "contraseña"
+  }'
 ```
 
-## Interfaz web
+**Login:**
 
-La aplicación incluye una interfaz web simple para probar el servicio. Accede a ella desde:
-http://localhost:3000
+```bash
+curl -X POST \
+  'http://localhost:3000/api/auth/login' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "username": "usuario",
+    "password": "contraseña"
+  }'
+```
+
+## Endpoints Principales
+
+- `/api/auth/register` - Registro de nuevos usuarios
+- `/api/auth/login` - Autenticación de usuarios
+- `/api/audio-recognition/identify` - Identificación de canciones
+- `/api/health` - Estado de salud del sistema
+- `/api` - Información básica del API
+
+## Documentación Técnica
+
+La API utiliza:
+
+- Spring Boot 3.2 para el backend
+- Spring Security + JWT para la autenticación
+- MongoDB para almacenamiento
+- Caffeine para caché de alta eficiencia
+- OkHttp para comunicaciones HTTP
+- Actuator para monitoreo
 
 ## Configuración
 
-Las principales propiedades configurables son:
-
-```
-server.port=3000
-app.rapid-api-key=tu-clave-rapidapi-aqui
-app.cors-origins=*
-app.http.connect-timeout=30000
-app.http.read-timeout=30000
-app.http.write-timeout=30000
-```
-
-## Contribución
-
-1. Haz un fork del proyecto
-
-2. Crea una rama para tu característica:
-   ```bash
-   git checkout -b feature/nueva-caracteristica
-   ```
-3. Haz commit de tus cambios:
-   ```bash
-   git commit -am 'Añade nueva característica'
-   ```
-4. Haz push a la rama:
-   ```bash
-   git push origin feature/nueva-caracteristica
-   ```
-5. Crea un Pull Request
+Ver archivo `application.properties.example` para todas las opciones disponibles.
 
 ## Licencia
 
-Este proyecto está licenciado bajo la licencia MIT.
-
-## Contacto
-
-Para cualquier consulta, puedes contactar al equipo de desarrollo en:
-📧 xaviermg2504@gmail.com
+Este proyecto está licenciado bajo la Licencia MIT - ver el archivo LICENSE para más detalles.

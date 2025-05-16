@@ -1,2 +1,42 @@
+# Automatically normalize line endings for all text-based files
+* text=auto
+
+# Scripts and executables
 /mvnw text eol=lf
 *.cmd text eol=crlf
+*.sh text eol=lf
+
+# Documentation files
+*.md text diff=markdown
+*.txt text
+*.html text diff=html
+*.css text diff=css
+*.js text
+
+# Java source files
+*.java text diff=java
+*.kt text diff=kotlin
+*.groovy text diff=groovy
+
+# XML files
+*.xml text diff=xml
+*.yaml text
+*.yml text
+*.json text
+*.properties text
+
+# Binary files (no conversion)
+*.jar binary
+*.war binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.mp3 binary
+*.wav binary
+*.mp4 binary
+*.pdf binary

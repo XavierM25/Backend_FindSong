@@ -7,6 +7,7 @@ import com.findsong.findsongapi.dto.AudioRecognitionResponseDto;
 import com.findsong.findsongapi.dto.SongResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -38,10 +39,10 @@ public class ShazamService {
                 .build();
     }
 
+    @Cacheable(value = "shazamResults", key = "T(java.util.Arrays).hashCode(#audioData)")
     public AudioRecognitionResponseDto identifySong(byte[] audioData) {
         try {
             byte[] processedAudioData = limitAudioSize(audioData);
-
             RequestBody requestBody = RequestBody.create(MediaType.parse(CONTENT_TYPE), processedAudioData);
             Request request = buildShazamRequest(requestBody);
 

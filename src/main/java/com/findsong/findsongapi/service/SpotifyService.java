@@ -10,6 +10,7 @@ import com.findsong.findsongapi.dto.TrackDto;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -44,6 +45,7 @@ public class SpotifyService {
                 .build();
     }
 
+    @Cacheable(value = "spotifyArtists", key = "#artistName + '-' + #songTitle")
     public SpotifyArtistDto getArtistInfo(String artistName, String songTitle) {
         try {
             if (accessToken == null) {
@@ -122,6 +124,7 @@ public class SpotifyService {
         }
     }
 
+    @Cacheable(value = "spotifyArtists", key = "'artistDetails-' + #artistId")
     private SpotifyArtistDto getArtistDetails(String artistId) throws IOException {
         Request request = new Request.Builder()
                 .url(spotifyApiUrl + "/artists/" + artistId)
@@ -477,6 +480,7 @@ public class SpotifyService {
         }
     }
 
+    @Cacheable(value = "spotifyAlbums", key = "'artistAlbums-' + #artistId")
     private List<AlbumDto> getArtistAlbums(String artistId) throws IOException {
         Request request = new Request.Builder()
                 .url(spotifyApiUrl + "/artists/" + artistId + "/albums?limit=10")

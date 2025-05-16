@@ -32,15 +32,55 @@ build/
 ### VS Code ###
 .vscode/
 
+### Eclipse ###
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+
 ### Logs ###
 logs/
 *.log
+*.log.*
 
-### Configuración local ###
+### Configuración local y secretos ###
 **/src/main/resources/application.properties
 **/src/main/resources/application-local.properties
+**/src/main/resources/application-dev.properties
 **/src/main/resources/application.yml
 **/src/main/resources/application-local.yml
+**/src/main/resources/application-dev.yml
+**/src/main/resources/keys/
+**/src/main/resources/secrets/
 
 ### Archivos temporales ###
 /uploads/
+/temp/
+*.tmp
+*.temp
+
+### Archivos del sistema operativo ###
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+### Node.js ###
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### Maven ###
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+### Gradle ###
+.gradle/
+
+### Archivos de prueba ###
+/test-upload/
