@@ -31,7 +31,8 @@ public class CacheConfig {
         cacheManager.setCacheNames(Arrays.asList(
                 "spotifyArtists",
                 "spotifyAlbums",
-                "shazamResults"));
+                "shazamResults",
+                "lyrics"));
 
         cacheManager.setCaffeine(Caffeine.newBuilder()
                 .maximumSize(1000)

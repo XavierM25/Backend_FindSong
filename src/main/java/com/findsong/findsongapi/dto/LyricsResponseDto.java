@@ -9,10 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ConsolidatedSongResponseDto {
-    private boolean success;
-    private String message;
-    private SongResponseDto shazamInfo;
-    private SpotifyArtistDto spotifyInfo;
+public class LyricsResponseDto {
     private String lyrics;
+    private String error;
 }

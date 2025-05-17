@@ -15,6 +15,7 @@ public class AudioRecognitionService {
 
     private final ShazamService shazamService;
     private final SpotifyService spotifyService;
+    private final LyricsService lyricsService;
 
     public ConsolidatedSongResponseDto identifySong(byte[] audioData) {
         if (audioData == null || audioData.length == 0) {
@@ -52,11 +53,29 @@ public class AudioRecognitionService {
                 // Continuamos aunque no haya información de Spotify
             }
 
+            // Obtener letras de la canción
+            String lyrics = null;
+            try {
+                var lyricsResponse = lyricsService.getLyrics(
+                        shazamResponse.getSong().getArtist(),
+                        shazamResponse.getSong().getTitle());
+                if (lyricsResponse.getLyrics() != null) {
+                    lyrics = lyricsResponse.getLyrics();
+                    log.info("Letras obtenidas para: {} - {}",
+                            shazamResponse.getSong().getTitle(),
+                            shazamResponse.getSong().getArtist());
+                }
+            } catch (Exception e) {
+                log.warn("No se pudieron obtener las letras: {}", e.getMessage());
+                // Continuamos aunque no haya letras
+            }
+
             return ConsolidatedSongResponseDto.builder()
                     .success(true)
                     .message("Canción identificada correctamente")
                     .shazamInfo(shazamResponse.getSong())
                     .spotifyInfo(spotifyInfo)
+                    .lyrics(lyrics)
                     .build();
 
         } catch (Exception e) {

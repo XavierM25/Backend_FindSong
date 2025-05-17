@@ -231,3 +231,379 @@ java.net.SocketTimeoutException: timeout
 2025-05-16T00:32:15.907-05:00  INFO 92677 --- [http-nio-3000-exec-2] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: Soda Stereo
 2025-05-16T00:32:15.908-05:00  INFO 92677 --- [http-nio-3000-exec-2] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
 2025-05-16T00:32:15.928-05:00  WARN 92677 --- [http-nio-3000-exec-2] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 23903 ms
+2025-05-17T12:08:17.414-05:00  INFO 22810 --- [main] c.f.findsongapi.FindSongApiApplication   : Starting FindSongApiApplication using Java 21.0.7 with PID 22810 (/home/david/Documentos/FindSongAPI/target/classes started by david in /home/david/Documentos/FindSongAPI)
+2025-05-17T12:08:17.416-05:00  INFO 22810 --- [main] c.f.findsongapi.FindSongApiApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-17T12:08:17.953-05:00  INFO 22810 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-05-17T12:08:17.995-05:00  INFO 22810 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 37 ms. Found 1 MongoDB repository interface.
+2025-05-17T12:08:18.750-05:00  INFO 22810 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 3000 (http)
+2025-05-17T12:08:18.758-05:00  INFO 22810 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-17T12:08:18.759-05:00  INFO 22810 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-05-17T12:08:18.797-05:00  INFO 22810 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-17T12:08:18.797-05:00  INFO 22810 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1330 ms
+2025-05-17T12:08:19.082-05:00  INFO 22810 --- [main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.1"}, "os": {"type": "Linux", "name": "Linux", "architecture": "amd64", "version": "6.14.5-arch1-1"}, "platform": "Java/Eclipse Adoptium/21.0.7+6-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, streamFactoryFactory=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@129c4d19], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@1b17d8ab, com.mongodb.Jep395RecordCodecProvider@7f6b7426, com.mongodb.KotlinCodecProvider@687eb455]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@497ed877], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2025-05-17T12:08:19.104-05:00  INFO 22810 --- [cluster-ClusterId{value='6828c283e034b16c7313f8b3', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=23192567}
+2025-05-17T12:08:19.723-05:00  WARN 22810 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'audioRecognitionController' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/controller/AudioRecognitionController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'audioRecognitionService' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/service/AudioRecognitionService.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'lyricsService' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/service/LyricsService.class]: Failed to instantiate [com.findsong.findsongapi.service.LyricsService]: No default constructor found
+2025-05-17T12:08:19.727-05:00  INFO 22810 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-05-17T12:08:19.731-05:00  WARN 22810 --- [main] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [BufferPoolPruner-1-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1763)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1070)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-17T12:08:19.742-05:00  INFO 22810 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-05-17T12:08:19.756-05:00 ERROR 22810 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'audioRecognitionController' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/controller/AudioRecognitionController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'audioRecognitionService' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/service/AudioRecognitionService.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'lyricsService' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/service/LyricsService.class]: Failed to instantiate [com.findsong.findsongapi.service.LyricsService]: No default constructor found
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:802) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:241) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1193) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:973) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:946) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:616) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:455) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:323) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342) ~[spring-boot-3.2.0.jar:3.2.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1331) ~[spring-boot-3.2.0.jar:3.2.0]
+	at com.findsong.findsongapi.FindSongApiApplication.main(FindSongApiApplication.java:16) ~[classes/:na]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'audioRecognitionService' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/service/AudioRecognitionService.class]: Unsatisfied dependency expressed through constructor parameter 2: Error creating bean with name 'lyricsService' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/service/LyricsService.class]: Failed to instantiate [com.findsong.findsongapi.service.LyricsService]: No default constructor found
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:802) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:241) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1356) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1193) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1441) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1348) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789) ~[spring-beans-6.1.1.jar:6.1.1]
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'lyricsService' defined in file [/home/david/Documentos/FindSongAPI/target/classes/com/findsong/findsongapi/service/LyricsService.class]: Failed to instantiate [com.findsong.findsongapi.service.LyricsService]: No default constructor found
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1318) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1203) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1441) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1348) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789) ~[spring-beans-6.1.1.jar:6.1.1]
+	... 33 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.findsong.findsongapi.service.LyricsService]: No default constructor found
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:84) ~[spring-beans-6.1.1.jar:6.1.1]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1312) ~[spring-beans-6.1.1.jar:6.1.1]
+	... 45 common frames omitted
+Caused by: java.lang.NoSuchMethodException: com.findsong.findsongapi.service.LyricsService.<init>()
+	at java.base/java.lang.Class.getConstructor0(Class.java:3761) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2930) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:80) ~[spring-beans-6.1.1.jar:6.1.1]
+	... 46 common frames omitted
+
+2025-05-17T12:09:16.736-05:00  INFO 23683 --- [main] c.f.findsongapi.FindSongApiApplication   : Starting FindSongApiApplication using Java 21.0.7 with PID 23683 (/home/david/Documentos/FindSongAPI/target/classes started by david in /home/david/Documentos/FindSongAPI)
+2025-05-17T12:09:16.738-05:00  INFO 23683 --- [main] c.f.findsongapi.FindSongApiApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-17T12:09:17.247-05:00  INFO 23683 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-05-17T12:09:17.280-05:00  INFO 23683 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 1 MongoDB repository interface.
+2025-05-17T12:09:17.935-05:00  INFO 23683 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 3000 (http)
+2025-05-17T12:09:17.942-05:00  INFO 23683 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-17T12:09:17.942-05:00  INFO 23683 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-05-17T12:09:17.976-05:00  INFO 23683 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-17T12:09:17.977-05:00  INFO 23683 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1197 ms
+2025-05-17T12:09:18.230-05:00  INFO 23683 --- [main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.1"}, "os": {"type": "Linux", "name": "Linux", "architecture": "amd64", "version": "6.14.5-arch1-1"}, "platform": "Java/Eclipse Adoptium/21.0.7+6-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, streamFactoryFactory=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@4a31ed12], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@687eb455, com.mongodb.Jep395RecordCodecProvider@6d969330, com.mongodb.KotlinCodecProvider@4861cca9]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@4fb64a52], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2025-05-17T12:09:18.250-05:00  INFO 23683 --- [cluster-ClusterId{value='6828c2bec19b1d4a83654035', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=32409117}
+2025-05-17T12:09:18.837-05:00  INFO 23683 --- [main] c.f.findsongapi.util.FileStorageUtil     : Directorio de uploads creado en: /tmp/findsong-uploads
+2025-05-17T12:09:18.947-05:00  INFO 23683 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-05-17T12:09:19.178-05:00  INFO 23683 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-17T12:09:19.236-05:00  INFO 23683 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6bf54260, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7165bde6, org.springframework.security.web.context.SecurityContextHolderFilter@1859e55c, org.springframework.security.web.header.HeaderWriterFilter@67b3960b, org.springframework.security.web.authentication.logout.LogoutFilter@bdda8a7, com.findsong.findsongapi.auth.security.JwtAuthenticationFilter@41167ded, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7a8b7e11, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d229912, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@72168258, org.springframework.security.web.session.SessionManagementFilter@603c2dee, org.springframework.security.web.access.ExceptionTranslationFilter@68360fb9, org.springframework.security.web.access.intercept.AuthorizationFilter@6dcee890]
+2025-05-17T12:09:19.562-05:00  INFO 23683 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 3000 (http) with context path ''
+2025-05-17T12:09:19.575-05:00  INFO 23683 --- [main] c.f.findsongapi.FindSongApiApplication   : Started FindSongApiApplication in 3.182 seconds (process running for 3.713)
+2025-05-17T12:09:20.198-05:00  INFO 23683 --- [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-17T12:09:20.199-05:00  INFO 23683 --- [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-17T12:09:20.201-05:00  INFO 23683 --- [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-05-17T12:09:38.699-05:00  WARN 23683 --- [http-nio-3000-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/api/audio-recognition/identify' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-05-17T12:09:38.779-05:00  INFO 23683 --- [http-nio-3000-exec-1] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 161708 bytes, tipo: audio/wav
+2025-05-17T12:09:38.780-05:00  INFO 23683 --- [http-nio-3000-exec-1] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 161708 bytes de audio
+2025-05-17T12:09:38.813-05:00  INFO 23683 --- [http-nio-3000-exec-1] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T12:09:42.410-05:00  INFO 23683 --- [http-nio-3000-exec-1] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: Headline - Louis Tomlinson
+2025-05-17T12:09:43.325-05:00  INFO 23683 --- [http-nio-3000-exec-1] c.f.findsongapi.service.SpotifyService   : Red social agregada: spotify - https://open.spotify.com/artist/57WHJIHrjOE3iAxpihhMnp
+2025-05-17T12:09:43.559-05:00  INFO 23683 --- [http-nio-3000-exec-1] c.f.findsongapi.service.SpotifyService   : Buscando biografía para artista: Louis Tomlinson (ID: 57WHJIHrjOE3iAxpihhMnp)
+2025-05-17T12:09:43.937-05:00  WARN 23683 --- [http-nio-3000-exec-1] c.f.findsongapi.service.SpotifyService   : No se pudo encontrar la biografía en la página HTML para Louis Tomlinson
+2025-05-17T12:09:48.523-05:00  INFO 23683 --- [http-nio-3000-exec-1] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: Louis Tomlinson
+2025-05-17T12:09:49.509-05:00  INFO 23683 --- [http-nio-3000-exec-1] c.f.f.service.AudioRecognitionService    : Letras obtenidas para: Headline - Louis Tomlinson
+2025-05-17T12:09:49.510-05:00  INFO 23683 --- [http-nio-3000-exec-1] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T12:09:49.532-05:00  WARN 23683 --- [http-nio-3000-exec-1] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 10805 ms
+2025-05-17T12:12:29.494-05:00  INFO 26591 --- [main] c.f.findsongapi.FindSongApiApplication   : Starting FindSongApiApplication using Java 21.0.7 with PID 26591 (/home/david/Documentos/FindSongAPI/target/classes started by david in /home/david/Documentos/FindSongAPI)
+2025-05-17T12:12:29.495-05:00  INFO 26591 --- [main] c.f.findsongapi.FindSongApiApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-17T12:12:29.981-05:00  INFO 26591 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-05-17T12:12:30.017-05:00  INFO 26591 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 1 MongoDB repository interface.
+2025-05-17T12:12:30.672-05:00  INFO 26591 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 3000 (http)
+2025-05-17T12:12:30.680-05:00  INFO 26591 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-17T12:12:30.680-05:00  INFO 26591 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-05-17T12:12:30.712-05:00  INFO 26591 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-17T12:12:30.713-05:00  INFO 26591 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1175 ms
+2025-05-17T12:12:30.972-05:00  INFO 26591 --- [main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.1"}, "os": {"type": "Linux", "name": "Linux", "architecture": "amd64", "version": "6.14.5-arch1-1"}, "platform": "Java/Eclipse Adoptium/21.0.7+6-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, streamFactoryFactory=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@3ab595c8], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@4861cca9, com.mongodb.Jep395RecordCodecProvider@6c8f4bc7, com.mongodb.KotlinCodecProvider@714e861f]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@70b48eb3], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2025-05-17T12:12:30.986-05:00  INFO 26591 --- [cluster-ClusterId{value='6828c37e63d44734bc6f2d33', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=28983146}
+2025-05-17T12:12:31.591-05:00  INFO 26591 --- [main] c.f.findsongapi.util.FileStorageUtil     : Directorio de uploads creado en: /tmp/findsong-uploads
+2025-05-17T12:12:31.705-05:00  INFO 26591 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-05-17T12:12:31.932-05:00  INFO 26591 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-17T12:12:31.988-05:00  INFO 26591 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1df9f7c6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4b5aa48b, org.springframework.security.web.context.SecurityContextHolderFilter@7977f046, org.springframework.security.web.header.HeaderWriterFilter@23933031, org.springframework.security.web.authentication.logout.LogoutFilter@7ec5aad, com.findsong.findsongapi.auth.security.JwtAuthenticationFilter@33187485, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@441aa7ae, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1534bdc6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@51c008fd, org.springframework.security.web.session.SessionManagementFilter@46fa2a7e, org.springframework.security.web.access.ExceptionTranslationFilter@1f19d423, org.springframework.security.web.access.intercept.AuthorizationFilter@2a9f8d47]
+2025-05-17T12:12:32.295-05:00  INFO 26591 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 3000 (http) with context path ''
+2025-05-17T12:12:32.306-05:00  INFO 26591 --- [main] c.f.findsongapi.FindSongApiApplication   : Started FindSongApiApplication in 3.149 seconds (process running for 3.645)
+2025-05-17T12:12:32.469-05:00  INFO 26591 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-17T12:12:32.470-05:00  INFO 26591 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-17T12:12:32.472-05:00  INFO 26591 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-05-17T12:12:41.442-05:00  WARN 26591 --- [http-nio-3000-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-05-17T12:12:58.278-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 162506 bytes, tipo: audio/wav
+2025-05-17T12:12:58.279-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 162506 bytes de audio
+2025-05-17T12:12:58.314-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T12:13:01.996-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: Headline - Louis Tomlinson
+2025-05-17T12:13:02.909-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.findsongapi.service.SpotifyService   : Red social agregada: spotify - https://open.spotify.com/artist/57WHJIHrjOE3iAxpihhMnp
+2025-05-17T12:13:03.136-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.findsongapi.service.SpotifyService   : Buscando biografía para artista: Louis Tomlinson (ID: 57WHJIHrjOE3iAxpihhMnp)
+2025-05-17T12:13:03.557-05:00  WARN 26591 --- [http-nio-3000-exec-3] c.f.findsongapi.service.SpotifyService   : No se pudo encontrar la biografía en la página HTML para Louis Tomlinson
+2025-05-17T12:13:07.900-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: Louis Tomlinson
+2025-05-17T12:13:08.862-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Letras obtenidas para: Headline - Louis Tomlinson
+2025-05-17T12:13:08.863-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T12:13:08.880-05:00  WARN 26591 --- [http-nio-3000-exec-3] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 10656 ms
+2025-05-17T12:23:00.427-05:00  INFO 26591 --- [http-nio-3000-exec-7] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 161385 bytes, tipo: audio/wav
+2025-05-17T12:23:00.428-05:00  INFO 26591 --- [http-nio-3000-exec-7] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 161385 bytes de audio
+2025-05-17T12:23:00.429-05:00  INFO 26591 --- [http-nio-3000-exec-7] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T12:23:03.766-05:00  INFO 26591 --- [http-nio-3000-exec-7] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: caminar al revés - Jaze
+2025-05-17T12:23:04.416-05:00  INFO 26591 --- [http-nio-3000-exec-7] c.f.findsongapi.service.SpotifyService   : Red social agregada: spotify - https://open.spotify.com/artist/5HUVDs80ZZCRRB9grwWzZc
+2025-05-17T12:23:04.638-05:00  INFO 26591 --- [http-nio-3000-exec-7] c.f.findsongapi.service.SpotifyService   : Buscando biografía para artista: Jaze (ID: 5HUVDs80ZZCRRB9grwWzZc)
+2025-05-17T12:23:05.204-05:00  WARN 26591 --- [http-nio-3000-exec-7] c.f.findsongapi.service.SpotifyService   : No se pudo encontrar la biografía en la página HTML para Jaze
+2025-05-17T12:23:09.507-05:00  INFO 26591 --- [http-nio-3000-exec-7] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: Jaze
+2025-05-17T12:23:10.489-05:00  INFO 26591 --- [http-nio-3000-exec-7] c.f.f.service.AudioRecognitionService    : Letras obtenidas para: caminar al revés - Jaze
+2025-05-17T12:23:10.489-05:00  INFO 26591 --- [http-nio-3000-exec-7] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T12:23:10.498-05:00  WARN 26591 --- [http-nio-3000-exec-7] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 10071 ms
+2025-05-17T12:23:32.665-05:00  INFO 26591 --- [http-nio-3000-exec-8] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 165292 bytes, tipo: audio/wav
+2025-05-17T12:23:32.665-05:00  INFO 26591 --- [http-nio-3000-exec-8] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 165292 bytes de audio
+2025-05-17T12:23:32.666-05:00  INFO 26591 --- [http-nio-3000-exec-8] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T12:23:36.178-05:00  INFO 26591 --- [http-nio-3000-exec-8] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: Triste y Abandonado - Chacalón y la Nueva Crema
+2025-05-17T12:23:36.728-05:00  INFO 26591 --- [http-nio-3000-exec-8] c.f.findsongapi.service.SpotifyService   : Red social agregada: spotify - https://open.spotify.com/artist/3HJvj2ET4zSRuxv0m4nLmw
+2025-05-17T12:23:36.951-05:00  INFO 26591 --- [http-nio-3000-exec-8] c.f.findsongapi.service.SpotifyService   : Buscando biografía para artista: Chacalón y la Nueva Crema (ID: 3HJvj2ET4zSRuxv0m4nLmw)
+2025-05-17T12:23:37.354-05:00  WARN 26591 --- [http-nio-3000-exec-8] c.f.findsongapi.service.SpotifyService   : No se pudo encontrar la biografía en la página HTML para Chacalón y la Nueva Crema
+2025-05-17T12:23:41.623-05:00  INFO 26591 --- [http-nio-3000-exec-8] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: Chacalón y la Nueva Crema
+2025-05-17T12:23:42.017-05:00  WARN 26591 --- [http-nio-3000-exec-8] c.f.findsongapi.service.LyricsService    : Error obteniendo letras para Chacalón y la Nueva Crema - Triste y Abandonado: 404
+2025-05-17T12:23:42.018-05:00  INFO 26591 --- [http-nio-3000-exec-8] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T12:23:42.019-05:00  WARN 26591 --- [http-nio-3000-exec-8] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 9355 ms
+2025-05-17T12:24:14.084-05:00  INFO 26591 --- [http-nio-3000-exec-9] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 164150 bytes, tipo: audio/wav
+2025-05-17T12:24:14.084-05:00  INFO 26591 --- [http-nio-3000-exec-9] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 164150 bytes de audio
+2025-05-17T12:24:14.085-05:00  INFO 26591 --- [http-nio-3000-exec-9] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T12:24:16.985-05:00  INFO 26591 --- [http-nio-3000-exec-9] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: BIRDS OF A FEATHER - Billie Eilish
+2025-05-17T12:24:17.536-05:00  INFO 26591 --- [http-nio-3000-exec-9] c.f.findsongapi.service.SpotifyService   : Red social agregada: spotify - https://open.spotify.com/artist/6qqNVTkY8uBg9cP3Jd7DAH
+2025-05-17T12:24:17.763-05:00  INFO 26591 --- [http-nio-3000-exec-9] c.f.findsongapi.service.SpotifyService   : Buscando biografía para artista: Billie Eilish (ID: 6qqNVTkY8uBg9cP3Jd7DAH)
+2025-05-17T12:24:18.144-05:00  WARN 26591 --- [http-nio-3000-exec-9] c.f.findsongapi.service.SpotifyService   : No se pudo encontrar la biografía en la página HTML para Billie Eilish
+2025-05-17T12:24:22.716-05:00  INFO 26591 --- [http-nio-3000-exec-9] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: Billie Eilish
+2025-05-17T12:24:23.043-05:00  INFO 26591 --- [http-nio-3000-exec-9] c.f.f.service.AudioRecognitionService    : Letras obtenidas para: BIRDS OF A FEATHER - Billie Eilish
+2025-05-17T12:24:23.043-05:00  INFO 26591 --- [http-nio-3000-exec-9] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T12:24:23.044-05:00  WARN 26591 --- [http-nio-3000-exec-9] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 8961 ms
+2025-05-17T12:28:14.573-05:00  INFO 26591 --- [http-nio-3000-exec-1] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 161384 bytes, tipo: audio/wav
+2025-05-17T12:28:14.574-05:00  INFO 26591 --- [http-nio-3000-exec-1] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 161384 bytes de audio
+2025-05-17T12:28:14.575-05:00  INFO 26591 --- [http-nio-3000-exec-1] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T12:28:27.222-05:00  INFO 26591 --- [http-nio-3000-exec-1] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: ONLY - LeeHi
+2025-05-17T12:28:57.224-05:00 ERROR 26591 --- [http-nio-3000-exec-1] c.f.findsongapi.service.SpotifyService   : Error obteniendo información del artista: timeout
+
+java.net.SocketTimeoutException: timeout
+	at okhttp3.internal.http2.Http2Stream$StreamTimeout.newTimeoutException(Http2Stream.kt:675) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.http2.Http2Stream$StreamTimeout.exitAndThrowIfTimedOut(Http2Stream.kt:684) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.http2.Http2Stream.takeHeaders(Http2Stream.kt:143) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.http2.Http2ExchangeCodec.readResponseHeaders(Http2ExchangeCodec.kt:97) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.connection.Exchange.readResponseHeaders(Exchange.kt:110) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.http.CallServerInterceptor.intercept(CallServerInterceptor.kt:93) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.connection.ConnectInterceptor.intercept(ConnectInterceptor.kt:34) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.cache.CacheInterceptor.intercept(CacheInterceptor.kt:95) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.http.BridgeInterceptor.intercept(BridgeInterceptor.kt:83) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.http.RetryAndFollowUpInterceptor.intercept(RetryAndFollowUpInterceptor.kt:76) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.http.RealInterceptorChain.proceed(RealInterceptorChain.kt:109) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.connection.RealCall.getResponseWithInterceptorChain$okhttp(RealCall.kt:201) ~[okhttp-4.12.0.jar:na]
+	at okhttp3.internal.connection.RealCall.execute(RealCall.kt:154) ~[okhttp-4.12.0.jar:na]
+	at com.findsong.findsongapi.service.SpotifyService.searchArtist(SpotifyService.java:112) ~[classes/:na]
+	at com.findsong.findsongapi.service.SpotifyService.getArtistInfo(SpotifyService.java:55) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.cache.interceptor.CacheInterceptor.lambda$invoke$0(CacheInterceptor.java:64) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.cache.interceptor.CacheAspectSupport.invokeOperation(CacheAspectSupport.java:392) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.cache.interceptor.CacheAspectSupport.evaluate(CacheAspectSupport.java:516) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:409) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:371) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:74) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:765) ~[spring-aop-6.1.1.jar:6.1.1]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:717) ~[spring-aop-6.1.1.jar:6.1.1]
+	at com.findsong.findsongapi.service.SpotifyService$$SpringCGLIB$$0.getArtistInfo(<generated>) ~[classes/:na]
+	at com.findsong.findsongapi.service.AudioRecognitionService.identifySong(AudioRecognitionService.java:45) ~[classes/:na]
+	at com.findsong.findsongapi.controller.AudioRecognitionController.identifySong(AudioRecognitionController.java:61) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:254) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:182) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at com.findsong.findsongapi.auth.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:37) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-05-17T12:28:57.228-05:00  INFO 26591 --- [http-nio-3000-exec-1] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: LeeHi
+2025-05-17T12:28:58.296-05:00  WARN 26591 --- [http-nio-3000-exec-1] c.f.findsongapi.service.LyricsService    : Error obteniendo letras para LeeHi - ONLY: 404
+2025-05-17T12:28:58.296-05:00  INFO 26591 --- [http-nio-3000-exec-1] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T12:28:58.298-05:00  WARN 26591 --- [http-nio-3000-exec-1] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 43725 ms
+2025-05-17T12:29:28.323-05:00  INFO 26591 --- [http-nio-3000-exec-2] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 162699 bytes, tipo: audio/wav
+2025-05-17T12:29:28.324-05:00  INFO 26591 --- [http-nio-3000-exec-2] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 162699 bytes de audio
+2025-05-17T12:29:28.324-05:00  INFO 26591 --- [http-nio-3000-exec-2] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T12:29:31.407-05:00  INFO 26591 --- [http-nio-3000-exec-2] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: Headline - Louis Tomlinson
+2025-05-17T12:29:31.409-05:00  INFO 26591 --- [http-nio-3000-exec-2] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: Louis Tomlinson
+2025-05-17T12:29:31.409-05:00  INFO 26591 --- [http-nio-3000-exec-2] c.f.f.service.AudioRecognitionService    : Letras obtenidas para: Headline - Louis Tomlinson
+2025-05-17T12:29:31.410-05:00  INFO 26591 --- [http-nio-3000-exec-2] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T12:29:31.411-05:00  WARN 26591 --- [http-nio-3000-exec-2] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 3088 ms
+2025-05-17T12:29:52.629-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 162650 bytes, tipo: audio/wav
+2025-05-17T12:29:52.629-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 162650 bytes de audio
+2025-05-17T12:29:52.630-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T12:29:55.335-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: ONLY - LeeHi
+2025-05-17T12:29:55.336-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: LeeHi
+2025-05-17T12:29:55.336-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T12:29:55.337-05:00  WARN 26591 --- [http-nio-3000-exec-3] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 2709 ms

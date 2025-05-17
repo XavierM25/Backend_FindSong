@@ -434,6 +434,37 @@
         background-color: #fb233b;
         color: white;
       }
+
+      /* Estilos para las letras de la canción */
+      .lyrics-container {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px 0;
+        max-height: 400px;
+        overflow-y: auto;
+        border: 1px solid #e9ecef;
+      }
+
+      .lyrics-text {
+        white-space: pre-wrap;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        text-align: left;
+        font-size: 14px;
+      }
+
+      #lyricsSection {
+        margin-top: 30px;
+      }
+
+      #lyricsSection h3 {
+        color: #3498db;
+        margin-bottom: 15px;
+        font-size: 20px;
+      }
     </style>
   </head>
   <body>
@@ -481,6 +512,14 @@
           <div>
             <span class="label">Género:</span>
             <span id="songGenre"></span>
+          </div>
+        </div>
+
+        <!-- Sección: Letras de la canción -->
+        <div id="lyricsSection" style="display: none">
+          <h3>Letra de la canción</h3>
+          <div class="lyrics-container">
+            <pre id="songLyrics" class="lyrics-text"></pre>
           </div>
         </div>
 
@@ -715,6 +754,16 @@
               shazamInfo.genres && shazamInfo.genres.length
                 ? shazamInfo.genres.join(", ")
                 : "Desconocido";
+
+            // Mostrar letras si están disponibles
+            const lyricsSection = document.getElementById("lyricsSection");
+            const lyricsText = document.getElementById("songLyrics");
+            if (data.lyrics && data.lyrics.trim() !== "") {
+              lyricsText.textContent = data.lyrics;
+              lyricsSection.style.display = "block";
+            } else {
+              lyricsSection.style.display = "none";
+            }
 
             // Actualizamos la imagen de portada
             const coverArt = document.getElementById("coverArt");
