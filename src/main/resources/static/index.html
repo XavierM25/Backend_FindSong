@@ -598,6 +598,12 @@
           // Reseteamos el estado
           resetUI();
 
+          // Limpiamos cualquier grabación anterior
+          audioChunks = [];
+          if (mediaRecorder && mediaRecorder.state === "recording") {
+            mediaRecorder.stop();
+          }
+
           // Solicitamos acceso al micrófono
           navigator.mediaDevices
             .getUserMedia({ audio: true })
@@ -970,12 +976,52 @@
 
         // Función para resetear la UI
         function resetUI() {
+          // Limpiar mensajes y estados
           error.style.display = "none";
           result.style.display = "none";
           loader.style.display = "none";
           statusMessage.textContent = "";
           statusMessage.className = "status";
           statusMessage.style.display = "block";
+
+          // Limpiar información de la canción
+          document.getElementById("songTitle").textContent = "";
+          document.getElementById("songArtist").textContent = "";
+          document.getElementById("songAlbum").textContent = "";
+          document.getElementById("songReleaseDate").textContent = "";
+          document.getElementById("songGenre").textContent = "";
+          document.getElementById("coverArt").src = "";
+          document.getElementById("coverArt").style.display = "none";
+
+          // Limpiar letras
+          document.getElementById("lyricsSection").style.display = "none";
+          document.getElementById("songLyrics").textContent = "";
+
+          // Limpiar información del artista
+          document.getElementById("artistInfo").style.display = "none";
+          document.getElementById("artistImage").src = "";
+          document.getElementById("artistBio").textContent = "";
+          document.getElementById("artistFollowers").textContent = "";
+          document.getElementById("artistLinks").innerHTML = "";
+
+          // Limpiar lista de canciones del álbum
+          document.getElementById("albumTracks").style.display = "none";
+          document.getElementById("tracksList").innerHTML = "";
+
+          // Limpiar enlaces
+          document.getElementById("spotifyLink").href = "#";
+          document.getElementById("spotifyLink").style.display = "none";
+          document.getElementById("appleMusicLink").href = "#";
+          document.getElementById("appleMusicLink").style.display = "none";
+          document.getElementById("previewLink").href = "#";
+          document.getElementById("previewLink").style.display = "none";
+
+          // Limpiar cualquier audio en reproducción
+          const audioElements = document.getElementsByTagName("audio");
+          for (let audio of audioElements) {
+            audio.pause();
+            audio.currentTime = 0;
+          }
         }
 
         // Función para abrir una canción en Spotify

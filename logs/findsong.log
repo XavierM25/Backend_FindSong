@@ -607,3 +607,362 @@ java.net.SocketTimeoutException: timeout
 2025-05-17T12:29:55.336-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: LeeHi
 2025-05-17T12:29:55.336-05:00  INFO 26591 --- [http-nio-3000-exec-3] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
 2025-05-17T12:29:55.337-05:00  WARN 26591 --- [http-nio-3000-exec-3] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 2709 ms
+2025-05-17T12:43:58.669-05:00  INFO 52752 --- [main] c.f.findsongapi.FindSongApiApplication   : Starting FindSongApiApplication using Java 21.0.7 with PID 52752 (/home/david/Documentos/FindSongAPI/target/classes started by david in /home/david/Documentos/FindSongAPI)
+2025-05-17T12:43:58.670-05:00  INFO 52752 --- [main] c.f.findsongapi.FindSongApiApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-17T12:43:59.029-05:00  INFO 52752 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-05-17T12:43:59.054-05:00  INFO 52752 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 1 MongoDB repository interface.
+2025-05-17T12:43:59.572-05:00  INFO 52752 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 3000 (http)
+2025-05-17T12:43:59.578-05:00  INFO 52752 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-17T12:43:59.578-05:00  INFO 52752 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-05-17T12:43:59.605-05:00  INFO 52752 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-17T12:43:59.605-05:00  INFO 52752 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 902 ms
+2025-05-17T12:43:59.800-05:00  INFO 52752 --- [main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.11.1"}, "os": {"type": "Linux", "name": "Linux", "architecture": "amd64", "version": "6.14.5-arch1-1"}, "platform": "Java/Eclipse Adoptium/21.0.7+6-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, transportSettings=null, streamFactoryFactory=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@c568f91], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@2a8f8555, com.mongodb.Jep395RecordCodecProvider@402b4f81, com.mongodb.KotlinCodecProvider@13ef7fa1]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@32ab408e], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2025-05-17T12:43:59.822-05:00  INFO 52752 --- [cluster-ClusterId{value='6828cadfc4421a4480a55f82', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=23651485}
+2025-05-17T12:44:00.300-05:00  INFO 52752 --- [main] c.f.findsongapi.util.FileStorageUtil     : Directorio de uploads creado en: /tmp/findsong-uploads
+2025-05-17T12:44:00.393-05:00  INFO 52752 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-05-17T12:44:00.577-05:00  INFO 52752 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-17T12:44:00.621-05:00  INFO 52752 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3149409c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1c421b0f, org.springframework.security.web.context.SecurityContextHolderFilter@67b3960b, org.springframework.security.web.header.HeaderWriterFilter@36330be8, org.springframework.security.web.authentication.logout.LogoutFilter@3dd591b9, com.findsong.findsongapi.auth.security.JwtAuthenticationFilter@1c92a549, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@19c1f6f4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@46fa2a7e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ce18cec, org.springframework.security.web.session.SessionManagementFilter@6338afe2, org.springframework.security.web.access.ExceptionTranslationFilter@217b0952, org.springframework.security.web.access.intercept.AuthorizationFilter@6a38e3d1]
+2025-05-17T12:44:00.862-05:00  INFO 52752 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 3000 (http) with context path ''
+2025-05-17T12:44:00.871-05:00  INFO 52752 --- [main] c.f.findsongapi.FindSongApiApplication   : Started FindSongApiApplication in 2.444 seconds (process running for 2.809)
+2025-05-17T12:44:01.322-05:00  INFO 52752 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-17T12:44:01.323-05:00  INFO 52752 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-17T12:44:01.325-05:00  INFO 52752 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-05-17T12:44:01.467-05:00  WARN 52752 --- [http-nio-3000-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-05-17T12:44:34.339-05:00  INFO 52752 --- [http-nio-3000-exec-3] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 161633 bytes, tipo: audio/wav
+2025-05-17T12:44:34.340-05:00  INFO 52752 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 161633 bytes de audio
+2025-05-17T12:44:34.366-05:00  INFO 52752 --- [http-nio-3000-exec-3] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T12:44:37.630-05:00  INFO 52752 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: BIRDS OF A FEATHER - Billie Eilish
+2025-05-17T12:44:38.570-05:00  INFO 52752 --- [http-nio-3000-exec-3] c.f.findsongapi.service.SpotifyService   : Red social agregada: spotify - https://open.spotify.com/artist/6qqNVTkY8uBg9cP3Jd7DAH
+2025-05-17T12:44:38.827-05:00  INFO 52752 --- [http-nio-3000-exec-3] c.f.findsongapi.service.SpotifyService   : Buscando biografía para artista: Billie Eilish (ID: 6qqNVTkY8uBg9cP3Jd7DAH)
+2025-05-17T12:44:39.247-05:00  WARN 52752 --- [http-nio-3000-exec-3] c.f.findsongapi.service.SpotifyService   : No se pudo encontrar la biografía en la página HTML para Billie Eilish
+2025-05-17T12:44:43.750-05:00  INFO 52752 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: Billie Eilish
+2025-05-17T12:44:44.694-05:00  INFO 52752 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Letras obtenidas para: BIRDS OF A FEATHER - Billie Eilish
+2025-05-17T12:44:44.695-05:00  INFO 52752 --- [http-nio-3000-exec-3] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T12:44:44.706-05:00  WARN 52752 --- [http-nio-3000-exec-3] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 10409 ms
+2025-05-17T12:45:02.695-05:00  INFO 52752 --- [http-nio-3000-exec-4] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 161714 bytes, tipo: audio/wav
+2025-05-17T12:45:02.696-05:00  INFO 52752 --- [http-nio-3000-exec-4] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 161714 bytes de audio
+2025-05-17T12:45:02.697-05:00  INFO 52752 --- [http-nio-3000-exec-4] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T12:45:05.640-05:00  INFO 52752 --- [http-nio-3000-exec-4] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: pensé en ti - Jaze & Caloncho
+2025-05-17T12:45:06.192-05:00  INFO 52752 --- [http-nio-3000-exec-4] c.f.findsongapi.service.SpotifyService   : Red social agregada: spotify - https://open.spotify.com/artist/5HUVDs80ZZCRRB9grwWzZc
+2025-05-17T12:45:06.431-05:00  INFO 52752 --- [http-nio-3000-exec-4] c.f.findsongapi.service.SpotifyService   : Buscando biografía para artista: Jaze (ID: 5HUVDs80ZZCRRB9grwWzZc)
+2025-05-17T12:45:06.859-05:00  WARN 52752 --- [http-nio-3000-exec-4] c.f.findsongapi.service.SpotifyService   : No se pudo encontrar la biografía en la página HTML para Jaze
+2025-05-17T12:45:11.015-05:00  INFO 52752 --- [http-nio-3000-exec-4] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: Jaze & Caloncho
+2025-05-17T12:45:11.402-05:00  WARN 52752 --- [http-nio-3000-exec-4] c.f.findsongapi.service.LyricsService    : Error obteniendo letras para Jaze & Caloncho - pensé en ti: 404
+2025-05-17T12:45:11.402-05:00  INFO 52752 --- [http-nio-3000-exec-4] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T12:45:11.403-05:00  WARN 52752 --- [http-nio-3000-exec-4] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 8708 ms
+2025-05-17T12:48:03.076-05:00  INFO 52752 --- [http-nio-3000-exec-6] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 162021 bytes, tipo: audio/wav
+2025-05-17T12:48:03.076-05:00  INFO 52752 --- [http-nio-3000-exec-6] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 162021 bytes de audio
+2025-05-17T12:48:03.077-05:00  INFO 52752 --- [http-nio-3000-exec-6] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T12:48:05.859-05:00  INFO 52752 --- [http-nio-3000-exec-6] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: ONLY - LeeHi
+2025-05-17T12:48:06.563-05:00  INFO 52752 --- [http-nio-3000-exec-6] c.f.findsongapi.service.SpotifyService   : Red social agregada: spotify - https://open.spotify.com/artist/7cVZApDoQZpS447nHTsNqu
+2025-05-17T12:48:06.805-05:00  INFO 52752 --- [http-nio-3000-exec-6] c.f.findsongapi.service.SpotifyService   : Buscando biografía para artista: LeeHi (ID: 7cVZApDoQZpS447nHTsNqu)
+2025-05-17T12:48:07.193-05:00  WARN 52752 --- [http-nio-3000-exec-6] c.f.findsongapi.service.SpotifyService   : No se pudo encontrar la biografía en la página HTML para LeeHi
+2025-05-17T12:48:11.477-05:00  INFO 52752 --- [http-nio-3000-exec-6] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: LeeHi
+2025-05-17T12:48:12.501-05:00  WARN 52752 --- [http-nio-3000-exec-6] c.f.findsongapi.service.LyricsService    : Error obteniendo letras para LeeHi - ONLY: 404
+2025-05-17T12:48:12.501-05:00  INFO 52752 --- [http-nio-3000-exec-6] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T12:48:12.503-05:00  WARN 52752 --- [http-nio-3000-exec-6] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 9428 ms
+2025-05-17T13:01:05.175-05:00  INFO 68402 --- [main] c.f.findsongapi.FindSongApiApplication   : Starting FindSongApiApplication using Java 21.0.7 with PID 68402 (/home/david/Documentos/FindSongAPI/target/classes started by david in /home/david/Documentos/FindSongAPI)
+2025-05-17T13:01:05.177-05:00  INFO 68402 --- [main] c.f.findsongapi.FindSongApiApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-17T13:01:05.873-05:00  INFO 68402 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 3000 (http)
+2025-05-17T13:01:05.879-05:00  INFO 68402 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-17T13:01:05.879-05:00  INFO 68402 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-05-17T13:01:05.904-05:00  INFO 68402 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-17T13:01:05.904-05:00  INFO 68402 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 700 ms
+2025-05-17T13:01:06.172-05:00  INFO 68402 --- [main] c.f.findsongapi.util.FileStorageUtil     : Directorio de uploads creado en: /tmp/findsong-uploads
+2025-05-17T13:01:06.227-05:00  WARN 68402 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: df752913-e76a-4bee-b58a-7eed28d97ad8
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-05-17T13:01:06.276-05:00  INFO 68402 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@c14e5a5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16f15ae9, org.springframework.security.web.context.SecurityContextHolderFilter@682e445e, org.springframework.security.web.header.HeaderWriterFilter@5c59a0f7, org.springframework.security.web.authentication.logout.LogoutFilter@7767bd4e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@70fede7d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36510e73, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6206b4a7, org.springframework.security.web.access.ExceptionTranslationFilter@7c71c889, org.springframework.security.web.access.intercept.AuthorizationFilter@333398f]
+2025-05-17T13:01:06.308-05:00  INFO 68402 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-05-17T13:01:06.576-05:00  INFO 68402 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-17T13:01:06.617-05:00  INFO 68402 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 3000 (http) with context path ''
+2025-05-17T13:01:06.625-05:00  INFO 68402 --- [main] c.f.findsongapi.FindSongApiApplication   : Started FindSongApiApplication in 1.688 seconds (process running for 1.995)
+2025-05-17T13:01:06.853-05:00  INFO 68402 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-17T13:01:06.853-05:00  INFO 68402 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-17T13:01:06.855-05:00  INFO 68402 --- [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-05-17T13:01:42.402-05:00 ERROR 68402 --- [http-nio-3000-exec-2] c.f.f.exception.GlobalExceptionHandler   : Error interno del servidor: No static resource favicon.ico.
+
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-05-17T13:02:04.819-05:00  INFO 68402 --- [http-nio-3000-exec-3] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 162350 bytes, tipo: audio/wav
+2025-05-17T13:02:04.820-05:00  INFO 68402 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 162350 bytes de audio
+2025-05-17T13:02:04.846-05:00  INFO 68402 --- [http-nio-3000-exec-3] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T13:02:08.549-05:00  INFO 68402 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: Headline - Louis Tomlinson
+2025-05-17T13:02:09.452-05:00  INFO 68402 --- [http-nio-3000-exec-3] c.f.findsongapi.service.SpotifyService   : Red social agregada: spotify - https://open.spotify.com/artist/57WHJIHrjOE3iAxpihhMnp
+2025-05-17T13:02:09.697-05:00  INFO 68402 --- [http-nio-3000-exec-3] c.f.findsongapi.service.SpotifyService   : Buscando biografía para artista: Louis Tomlinson (ID: 57WHJIHrjOE3iAxpihhMnp)
+2025-05-17T13:02:10.183-05:00  WARN 68402 --- [http-nio-3000-exec-3] c.f.findsongapi.service.SpotifyService   : No se pudo encontrar la biografía en la página HTML para Louis Tomlinson
+2025-05-17T13:02:14.644-05:00  INFO 68402 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: Louis Tomlinson
+2025-05-17T13:02:15.846-05:00  INFO 68402 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Letras obtenidas para: Headline - Louis Tomlinson
+2025-05-17T13:02:15.847-05:00  INFO 68402 --- [http-nio-3000-exec-3] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T13:02:15.854-05:00  WARN 68402 --- [http-nio-3000-exec-3] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 11070 ms
+2025-05-17T13:02:39.396-05:00  INFO 68402 --- [http-nio-3000-exec-4] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 161704 bytes, tipo: audio/wav
+2025-05-17T13:02:39.396-05:00  INFO 68402 --- [http-nio-3000-exec-4] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 161704 bytes de audio
+2025-05-17T13:02:39.397-05:00  INFO 68402 --- [http-nio-3000-exec-4] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T13:02:42.304-05:00  INFO 68402 --- [http-nio-3000-exec-4] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: BIRDS OF A FEATHER - Billie Eilish
+2025-05-17T13:02:42.888-05:00  INFO 68402 --- [http-nio-3000-exec-4] c.f.findsongapi.service.SpotifyService   : Red social agregada: spotify - https://open.spotify.com/artist/6qqNVTkY8uBg9cP3Jd7DAH
+2025-05-17T13:02:43.117-05:00  INFO 68402 --- [http-nio-3000-exec-4] c.f.findsongapi.service.SpotifyService   : Buscando biografía para artista: Billie Eilish (ID: 6qqNVTkY8uBg9cP3Jd7DAH)
+2025-05-17T13:02:43.562-05:00  WARN 68402 --- [http-nio-3000-exec-4] c.f.findsongapi.service.SpotifyService   : No se pudo encontrar la biografía en la página HTML para Billie Eilish
+2025-05-17T13:02:47.991-05:00  INFO 68402 --- [http-nio-3000-exec-4] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: Billie Eilish
+2025-05-17T13:02:48.303-05:00  INFO 68402 --- [http-nio-3000-exec-4] c.f.f.service.AudioRecognitionService    : Letras obtenidas para: BIRDS OF A FEATHER - Billie Eilish
+2025-05-17T13:02:48.303-05:00  INFO 68402 --- [http-nio-3000-exec-4] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T13:02:48.305-05:00  WARN 68402 --- [http-nio-3000-exec-4] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 8910 ms
+2025-05-17T13:06:45.654-05:00  INFO 73402 --- [main] c.f.findsongapi.FindSongApiApplication   : Starting FindSongApiApplication using Java 21.0.7 with PID 73402 (/home/david/Documentos/FindSongAPI/target/classes started by david in /home/david/Documentos/FindSongAPI)
+2025-05-17T13:06:45.656-05:00  INFO 73402 --- [main] c.f.findsongapi.FindSongApiApplication   : No active profile set, falling back to 1 default profile: "default"
+2025-05-17T13:06:46.372-05:00  INFO 73402 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 3000 (http)
+2025-05-17T13:06:46.377-05:00  INFO 73402 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-17T13:06:46.378-05:00  INFO 73402 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-05-17T13:06:46.401-05:00  INFO 73402 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-17T13:06:46.401-05:00  INFO 73402 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 719 ms
+2025-05-17T13:06:46.678-05:00  INFO 73402 --- [main] c.f.findsongapi.util.FileStorageUtil     : Directorio de uploads creado en: /tmp/findsong-uploads
+2025-05-17T13:06:46.785-05:00  INFO 73402 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4dd2ef54, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@795b66d, org.springframework.security.web.context.SecurityContextHolderFilter@341c6ac2, org.springframework.security.web.header.HeaderWriterFilter@42d9e8d2, org.springframework.security.web.authentication.logout.LogoutFilter@4d69d288, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@787d1f9c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2becfd4c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@359ceb13, org.springframework.security.web.session.SessionManagementFilter@cf01c2e, org.springframework.security.web.access.ExceptionTranslationFilter@3404e5c4, org.springframework.security.web.access.intercept.AuthorizationFilter@7767bd4e]
+2025-05-17T13:06:46.819-05:00  INFO 73402 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2025-05-17T13:06:47.058-05:00  INFO 73402 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-05-17T13:06:47.097-05:00  INFO 73402 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 3000 (http) with context path ''
+2025-05-17T13:06:47.105-05:00  INFO 73402 --- [main] c.f.findsongapi.FindSongApiApplication   : Started FindSongApiApplication in 1.684 seconds (process running for 2.018)
+2025-05-17T13:06:47.285-05:00  INFO 73402 --- [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-17T13:06:47.285-05:00  INFO 73402 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-17T13:06:47.286-05:00  INFO 73402 --- [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-17T13:06:58.179-05:00 ERROR 73402 --- [http-nio-3000-exec-2] c.f.f.exception.GlobalExceptionHandler   : Error interno del servidor: No static resource favicon.ico.
+
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.1.jar:6.1.1]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.16.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.0.jar:6.2.0]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.1.jar:6.1.1]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.16.jar:10.1.16]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2025-05-17T13:07:29.367-05:00  INFO 73402 --- [http-nio-3000-exec-3] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 163593 bytes, tipo: audio/wav
+2025-05-17T13:07:29.368-05:00  INFO 73402 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 163593 bytes de audio
+2025-05-17T13:07:29.396-05:00  INFO 73402 --- [http-nio-3000-exec-3] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T13:07:32.837-05:00  INFO 73402 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: El Muñeco de la Ciudad - Bobby Valentín
+2025-05-17T13:07:33.770-05:00  INFO 73402 --- [http-nio-3000-exec-3] c.f.findsongapi.service.SpotifyService   : Red social agregada: spotify - https://open.spotify.com/artist/7nJ3uKCT4lPwDJSRZzBlss
+2025-05-17T13:07:33.989-05:00  INFO 73402 --- [http-nio-3000-exec-3] c.f.findsongapi.service.SpotifyService   : Buscando biografía para artista: Bobby Valentin (ID: 7nJ3uKCT4lPwDJSRZzBlss)
+2025-05-17T13:07:34.653-05:00  WARN 73402 --- [http-nio-3000-exec-3] c.f.findsongapi.service.SpotifyService   : No se pudo encontrar la biografía en la página HTML para Bobby Valentin
+2025-05-17T13:07:39.265-05:00  INFO 73402 --- [http-nio-3000-exec-3] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: Bobby Valentín
+2025-05-17T13:07:40.612-05:00  WARN 73402 --- [http-nio-3000-exec-3] c.f.findsongapi.service.LyricsService    : Error obteniendo letras para Bobby Valentín - El Muñeco de la Ciudad: 404
+2025-05-17T13:07:40.613-05:00  INFO 73402 --- [http-nio-3000-exec-3] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T13:07:40.619-05:00  WARN 73402 --- [http-nio-3000-exec-3] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 11289 ms
+2025-05-17T13:07:57.455-05:00  INFO 73402 --- [http-nio-3000-exec-4] c.f.f.c.AudioRecognitionController       : Procesando archivo de tamaño: 163540 bytes, tipo: audio/wav
+2025-05-17T13:07:57.455-05:00  INFO 73402 --- [http-nio-3000-exec-4] c.f.f.service.AudioRecognitionService    : Iniciando identificación de canción con 163540 bytes de audio
+2025-05-17T13:07:57.456-05:00  INFO 73402 --- [http-nio-3000-exec-4] c.f.findsongapi.service.ShazamService    : Enviando solicitud a Shazam API...
+2025-05-17T13:08:00.523-05:00  INFO 73402 --- [http-nio-3000-exec-4] c.f.f.service.AudioRecognitionService    : Canción identificada correctamente: Headline - Louis Tomlinson
+2025-05-17T13:08:01.076-05:00  INFO 73402 --- [http-nio-3000-exec-4] c.f.findsongapi.service.SpotifyService   : Red social agregada: spotify - https://open.spotify.com/artist/57WHJIHrjOE3iAxpihhMnp
+2025-05-17T13:08:01.297-05:00  INFO 73402 --- [http-nio-3000-exec-4] c.f.findsongapi.service.SpotifyService   : Buscando biografía para artista: Louis Tomlinson (ID: 57WHJIHrjOE3iAxpihhMnp)
+2025-05-17T13:08:01.706-05:00  WARN 73402 --- [http-nio-3000-exec-4] c.f.findsongapi.service.SpotifyService   : No se pudo encontrar la biografía en la página HTML para Louis Tomlinson
+2025-05-17T13:08:06.029-05:00  INFO 73402 --- [http-nio-3000-exec-4] c.f.f.service.AudioRecognitionService    : Información de Spotify obtenida para artista: Louis Tomlinson
+2025-05-17T13:08:06.346-05:00  INFO 73402 --- [http-nio-3000-exec-4] c.f.f.service.AudioRecognitionService    : Letras obtenidas para: Headline - Louis Tomlinson
+2025-05-17T13:08:06.346-05:00  INFO 73402 --- [http-nio-3000-exec-4] c.f.f.c.AudioRecognitionController       : Identificación completada con éxito: true
+2025-05-17T13:08:06.348-05:00  WARN 73402 --- [http-nio-3000-exec-4] c.f.f.config.PerformanceInterceptor      : Solicitud lenta [AudioRecognitionController]: identifySong /api/audio-recognition/identify - 8894 ms
